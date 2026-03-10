@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" fill="#165DFF" aria-hidden="true">
+  <!--
+    Simplified continent silhouettes.
+    ViewBox 1000x500. Scale: 1deg = 2.778px.
+    x = (lon + 180) * 2.778   y = (90 - lat) * 2.778
+  -->
+
+  <!-- North America (clockwise: N coast → E coast → Gulf → Central America → Pacific) -->
+  <path d="M33,67 L64,53 L139,58 L194,47 L236,75 L319,75 L347,103 L333,122
+           L314,128 L306,133 L294,136 L289,147 L289,153 L286,156 L278,158
+           L275,164 L275,172 L275,181 L269,172 L258,167 L250,167 L236,169
+           L228,189 L258,192 L258,206 L269,206 L261,217 L281,225
+           L281,228 L264,222 L247,211 L219,203 L194,186
+           L175,158 L161,144 L156,128 L156,117 L144,111
+           L128,94 L75,92 L50,86 L42,78 Z"/>
+
+  <!-- Greenland -->
+  <path d="M356,33 L403,19 L450,36 L444,56 L422,75 L397,78 L372,75 L358,64 Z"/>
+
+  <!-- South America (clockwise from Caribbean coast) -->
+  <path d="M281,225 L289,211 L314,208 L331,219 L367,239
+           L395,261 L403,272 L395,286 L381,314
+           L358,333 L344,347 L322,378 L311,403
+           L297,389 L286,361 L278,314 L278,283 L278,250
+           L281,228 Z"/>
+
+  <!-- Europe (clockwise: W coast → Med → Black Sea → Russia → Scandinavia) -->
+  <path d="M475,131 L494,117 L511,108 L525,92 L517,78 L539,53 L553,56
+           L560,72 L553,81 L572,83 L578,61 L592,78
+           L603,119 L581,128 L578,136 L564,147
+           L544,144 L522,147 L511,131 L494,125
+           L483,131 L483,150 L475,142 Z"/>
+
+  <!-- British Isles -->
+  <path d="M476,106 L486,100 L494,103 L489,117 L478,117 Z"/>
+
+  <!-- Africa (clockwise: N coast → Horn → E coast → Cape → W coast) -->
+  <path d="M483,150 L508,147 L528,147 L569,161 L603,167
+           L617,208 L642,217 L617,253 L611,281
+           L597,311 L575,333 L550,344
+           L544,331 L533,297 L525,256
+           L508,233 L489,236 L453,208
+           L464,172 L483,150 Z"/>
+
+  <!-- Madagascar -->
+  <path d="M606,300 L614,289 L617,308 L611,319 L606,308 Z"/>
+
+  <!-- Asia (clockwise: Turkey → Russia N → Far East → SE Asia → India → Arabia) -->
+  <path d="M578,136 L603,119 L592,78 L658,69 L764,56 L861,61 L994,69
+           L906,117 L878,147 L858,150 L839,167
+           L814,189 L800,219 L789,244
+           L761,236 L747,211 L722,219 L717,228
+           L711,219 L706,208 L703,189
+           L664,189 L631,183 L625,214
+           L606,172 L600,156 L578,136 Z"/>
+
+  <!-- Japan (Honshu + Kyushu simplified) -->
+  <path d="M875,150 L881,139 L892,131 L894,136 L886,147 L880,156 Z"/>
+
+  <!-- Sri Lanka -->
+  <path d="M717,239 L722,236 L725,244 L719,247 Z"/>
+
+  <!-- Australia (clockwise) -->
+  <path d="M819,297 L864,283 L903,281 L919,325 L919,344
+           L894,350 L875,347 L855,347 L828,347 L822,339 Z"/>
+
+  <!-- New Zealand (South Island simplified) -->
+  <path d="M975,364 L981,355 L986,364 L984,372 L978,369 Z"/>
+
+  <!-- Antarctica (thin strip) -->
+  <path d="M0,472 Q250,458 500,463 Q750,468 1000,458 L1000,488 Q750,494 500,489 Q250,484 0,494 Z"/>
+</svg>

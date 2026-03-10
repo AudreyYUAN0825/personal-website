@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design tokens ─────────────────────────────────────────────────────────── */
+:root {
+  --ink:    #0B1120;
+  --paper:  #F5F7FA;
+  --card:   #FFFFFF;
+  --accent: #165DFF;
+  --moss:   #00C48C;
+  --line:   rgba(15,23,42,0.08);
+
+  /* Brand gradient */
+  --gradient-brand: linear-gradient(135deg, #165DFF 0%, #00C48C 100%);
+  --gradient-brand-r: linear-gradient(135deg, #00C48C 0%, #165DFF 100%);
+}
+
+/* ── Base ────────────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+
+/* Subtle diagonal page background */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  line-height: 1.65;
+  background: linear-gradient(135deg, #F5F7FA 0%, #E9EEF6 100%);
+  background-attachment: fixed;
+  color: #0B1120;
+}
+
+::selection {
+  background: rgba(22,93,255,0.14);
+  color: #0B1120;
+}
+
+/* Chinese text: tighter tracking */
+:lang(zh) {
+  letter-spacing: 0;
+  word-break: break-all;
+}
+
+h1, h2, h3 {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Gradient text utility ──────────────────────────────────────────────── */
+.gradient-heading {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Animated underline (left → right) for links ────────────────────────── */
+.underline-grow {
+  position: relative;
+}
+.underline-grow::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 1.5px;
+  background: var(--gradient-brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease-out;
+}
+.underline-grow:hover::after {
+  transform: scaleX(1);
+}
+
+/* ── Hero section glow ──────────────────────────────────────────────────── */
+.hero-bg {
+  background:
+    radial-gradient(circle at 15% 30%, rgba(22,93,255,0.08)  0%, transparent 45%),
+    radial-gradient(circle at 85% 65%, rgba(0,196,140,0.06)  0%, transparent 45%),
+    radial-gradient(circle at 50% 95%, rgba(22,93,255,0.04)  0%, transparent 40%);
+}
+
+/* ── Ambient blob drift (hero) ──────────────────────────────────────────── */
+@keyframes blob {
+  0%   { transform: translate(0px,   0px)  scale(1);    }
+  33%  { transform: translate(24px, -16px) scale(1.05); }
+  66%  { transform: translate(-12px, 22px) scale(0.97); }
+  100% { transform: translate(0px,   0px)  scale(1);    }
+}
+
+/* ── Section fade-in on scroll ──────────────────────────────────────────── */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+}
+.fade-up.visible {
+  animation: fadeSlideUp 0.6s ease-out forwards;
+}
+
+/* ── Metric icon pulse ──────────────────────────────────────────────────── */
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1);    opacity: 0.55; }
+  50%       { transform: scale(1.18); opacity: 0.80; }
+}
+.icon-pulse {
+  animation: iconPulse 3s ease-in-out infinite;
+}
+
+/* ── Navbar scroll transition ────────────────────────────────────────────── */
+.nav-transparent {
+  background: rgba(255,255,255,0.85);
+  border-color: rgba(15,23,42,0.06);
+  box-shadow: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.nav-scrolled {
+  background: rgba(255,255,255,0.95);
+  border-color: rgba(15,23,42,0.08);
+  box-shadow: 0 1px 12px rgba(15,23,42,0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
