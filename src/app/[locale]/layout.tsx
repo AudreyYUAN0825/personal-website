@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "../globals.css";
-import { locales, type Locale } from "@/lib/i18n";
+import { locales } from "@/lib/i18n";
 import { LightboxProvider } from "@/components/ui/Lightbox";
 
 const inter = Inter({
@@ -30,10 +30,10 @@ export async function generateStaticParams() {
 
 export default function LocaleLayout({
   children,
-  params,
+  params: _params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }) {
   return (
     <html lang="zh" className={`${inter.variable} ${spaceGrotesk.variable}`}>
