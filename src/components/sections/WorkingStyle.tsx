@@ -15,7 +15,7 @@ export function WorkingStyle({ locale, ui, workingStyle }: WorkingStyleProps) {
   return (
     <div>
       {/* Section header */}
-      <div className="mb-8">
+      <div className="mb-6">
         <h2 className="gradient-heading font-display text-2xl font-semibold tracking-tight sm:text-3xl">
           {sec.title}
         </h2>

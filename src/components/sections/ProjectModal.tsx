@@ -56,10 +56,10 @@ export function ProjectModal({ project, locale, ui, onClose }: ProjectModalProps
 
   return (
     <Modal open={!!project} onClose={onClose}>
-      <div className="flex max-h-[90vh] flex-col overflow-hidden rounded-2xl border border-line bg-card shadow-[0_24px_64px_rgba(11,17,32,0.16)]">
+      <div className="flex max-h-[90vh] flex-col overflow-hidden rounded-2xl border border-line bg-white shadow-[0_24px_64px_rgba(11,17,32,0.16)]">
 
         {/* ── Header bar — fixed, never scrolls ───────────────────────────── */}
-        <div className="shrink-0 flex items-start justify-between border-b border-line bg-card/80 px-6 py-4">
+        <div className="shrink-0 flex items-start justify-between border-b border-line bg-white px-6 py-4">
           <div className="flex-1 pr-4">
             <div className="mb-2 flex flex-wrap gap-1.5">
               {project.tags.map((tag, i) => (

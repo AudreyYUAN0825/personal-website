@@ -15,7 +15,7 @@ export function ValueBridge({ locale, ui, valueBridge }: ValueBridgeProps) {
   return (
     <div>
       {/* Section header */}
-      <div className="mb-8">
+      <div className="mb-6">
         <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.14em] text-moss/70">
           {ui.labels.background} → {ui.labels.businessValue}
         </p>

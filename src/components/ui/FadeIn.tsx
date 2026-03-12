@@ -4,14 +4,14 @@ import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
 interface FadeInProps {
-  children:  React.ReactNode;
-  delay?:    number;   // ms
+  children:   React.ReactNode;
+  delay?:     number;   // ms — stagger child sections
   className?: string;
 }
 
 /**
- * Wraps children in a div that fades + slides up when it enters the viewport.
- * Uses IntersectionObserver — no deps needed, works in all modern browsers.
+ * Reveals children with opacity 0→1 + translateY 40px→0
+ * duration 0.6s, cubic-bezier(0.4, 0, 0.2, 1)
  */
 export function FadeIn({ children, delay = 0, className }: FadeInProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -23,11 +23,11 @@ export function FadeIn({ children, delay = 0, className }: FadeInProps) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          el.classList.add("visible");
+          el.classList.add("is-visible");
           observer.disconnect();
         }
       },
-      { threshold: 0.08 }
+      { threshold: 0.05, rootMargin: "0px 0px -40px 0px" }
     );
 
     observer.observe(el);
@@ -37,8 +37,8 @@ export function FadeIn({ children, delay = 0, className }: FadeInProps) {
   return (
     <div
       ref={ref}
-      className={cn("fade-up", className)}
-      style={delay ? { animationDelay: `${delay}ms` } : undefined}
+      className={cn("reveal", className)}
+      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
     >
       {children}
     </div>

@@ -167,10 +167,12 @@ export type HomeContent = {
   hero: {
     name:           LocalizedText;
     role:           LocalizedText;
+    subtitle:       LocalizedText;  // 副标题 22–26px
+    description:   LocalizedText;   // 说明行 16–18px
     tagline:        LocalizedText;
     portrait:       { src: string; alt: LocalizedText };
     snapshot:       { languages: LocalizedText; markets: LocalizedText; focus: LocalizedText; exp: LocalizedText };
-    specialtyChips: LocalizedText[]; // Domain-label chips shown below role line, fully localized
+    specialtyChips: LocalizedText[];
   };
   metrics:      Metric[];
   valueBridge:  ValueBridgeItem[];

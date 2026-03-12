@@ -149,10 +149,20 @@ export function getHomeContent(locale: Locale): HomeContent {
     ui: uiMap[locale],
 
     hero: {
-      name:    { zh: "袁齐惠 · Qihui Yuan", en: "Qihui Yuan", fr: "Qihui Yuan" },
+      name:    { zh: "袁齐惠", en: "Qihui Yuan", fr: "Qihui Yuan" },
       role:    { zh: "国际战略与伙伴关系 · International Strategy & Partnerships", en: "International Strategy & Partnerships", fr: "Stratégie internationale & Partenariats" },
-      tagline: { zh: "我是专注于新能源与气候科技企业全球市场进入的国际业务从业者，依托 UNDP、OECD 及欧洲咨询公司的实践，具备跨文化沟通、结构化执行与 ESG 合规落地能力，致力于推动科技企业在国际市场的可持续增长。", en: "International business professional focused on global market entry for CleanTech and climate technology companies — grounded in UNDP, OECD, and European consulting practice, with proven cross-cultural communication, structured execution, and ESG compliance capabilities.", fr: "Professionnelle en développement international, spécialisée dans l'entrée sur les marchés mondiaux pour les entreprises de technologies propres — appuyée sur des expériences au PNUD, à l'OCDE et en conseil européen, avec des compétences en communication interculturelle, exécution structurée et conformité ESG." },
-      portrait: { src: "/images/portrait.png", alt: { zh: "袁齐惠个人照片", en: "Qihui Yuan portrait", fr: "Photo de Qihui Yuan" } },
+      subtitle: {
+        zh: "能源与气候战略分析",
+        en: "Energy & Climate Strategy Analysis",
+        fr: "Analyse stratégique énergie et climat",
+      },
+      description: {
+        zh: "专注能源转型与气候政策研究，结合政策分析、市场研究与数据洞察，为企业与金融机构提供全球能源与可持续发展战略支持。",
+        en: "Specializing in energy transition and climate policy research, combining policy analysis, market research and data insights to provide global energy and sustainability strategy support for enterprises and financial institutions.",
+        fr: "Spécialisée dans la recherche sur la transition énergétique et les politiques climatiques, combinant analyse politique, études de marché et données pour accompagner entreprises et institutions financières dans leurs stratégies énergie et durabilité.",
+      },
+      tagline: { zh: "", en: "", fr: "" },
+      portrait: { src: "/images/portrait-transparent.png", alt: { zh: "袁齐惠个人照片", en: "Qihui Yuan portrait", fr: "Photo de Qihui Yuan" } },
       snapshot: {
         languages: { zh: "中 · 英 · 法",      en: "ZH · EN · FR",      fr: "ZH · EN · FR" },
         markets:   { zh: "市场：欧盟 · 亚太",  en: "EU · APAC Markets", fr: "Marchés UE · APAC" },
@@ -160,11 +170,9 @@ export function getHomeContent(locale: Locale): HomeContent {
         exp:       { zh: "6 段国际经历",       en: "6 Intl. Engagements", fr: "6 Engagements Int." },
       },
       specialtyChips: [
-        { zh: "市场进入",     en: "Market Entry",        fr: "Entrée sur les marchés" },
-        { zh: "ESG 咨询",    en: "ESG Advisory",         fr: "Conseil ESG" },
-        { zh: "政策转化落地", en: "Policy-to-Business",   fr: "Politique → Business" },
-        { zh: "项目运营",     en: "Project Operations",   fr: "Opérations Projets" },
-        { zh: "跨文化业务拓展", en: "Cross-cultural BD",  fr: "BD Interculturel" },
+        { zh: "能源转型",     en: "Energy Transition",    fr: "Transition énergétique" },
+        { zh: "气候政策",     en: "Climate Policy",       fr: "Politique climatique" },
+        { zh: "市场战略",     en: "Market Strategy",      fr: "Stratégie marché" },
       ],
     },
 

@@ -1,13 +1,11 @@
 import { notFound } from "next/navigation";
 import { isLocale, type Locale } from "@/lib/i18n";
 import { getHomeContent } from "@/content/home";
-import { Header } from "@/components/header/Header";
+import { NavbarPortal } from "@/components/header/NavbarPortal";
 import { Section } from "@/components/layout/Section";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Hero } from "@/components/sections/Hero";
-import { Metrics } from "@/components/sections/Metrics";
 import { ValueBridge } from "@/components/sections/ValueBridge";
-import { Capabilities } from "@/components/sections/Capabilities";
 import { Projects } from "@/components/sections/Projects";
 import { Experiences } from "@/components/sections/Experiences";
 import { Education } from "@/components/sections/Education";
@@ -29,101 +27,99 @@ export default async function HomePage({
   const content = getHomeContent(locale as Locale);
 
   return (
-    <>
-      <Header locale={locale as Locale} ui={content.ui} cv={content.cv} />
-      <main id="top" className="pt-16">
+    <div className="page-shell">
+      <main id="top">
 
-        {/* 1 · Hero */}
-        <Section id="hero" className="hero-bg py-12 md:py-18">
-          <Hero locale={locale as Locale} ui={content.ui} hero={content.hero} />
-        </Section>
+        {/* 1 · Hero — full-bleed, no Section wrapper, handles own padding */}
+        <Hero locale={locale as Locale} ui={content.ui} hero={content.hero} />
 
-        {/* 2 · Metrics */}
-        <Section id="metrics" className="border-t border-line bg-white/60 py-8">
-          <FadeIn>
-            <Metrics locale={locale as Locale} ui={content.ui} metrics={content.metrics} />
-          </FadeIn>
-        </Section>
-
-        {/* 3 · Capabilities */}
-        <Section id="capabilities" className="py-16 bg-white/70">
-          <FadeIn>
-            <Capabilities locale={locale as Locale} ui={content.ui} capabilities={content.capabilities} />
-          </FadeIn>
-        </Section>
-
-        {/* 5 · Projects */}
-        <Section id="projects" className="py-16">
-          <FadeIn>
+        {/* ── Projects — 蓝+紫 ── */}
+        <Section id="projects" className="section-rhythm section-projects relative py-20 lg:py-28" style={{ zIndex: 10 }}>
+          <FadeIn delay={0}>
             <Projects locale={locale as Locale} ui={content.ui} projects={content.projects} />
           </FadeIn>
         </Section>
 
-        {/* 6 · Key Experiences */}
-        <Section id="experiences" className="py-16 bg-white/70">
-          <FadeIn>
+        {/* ── Key Experiences — 白+浅蓝 ── */}
+        <Section id="experiences" className="section-rhythm section-experiences py-20 lg:py-28">
+          <FadeIn delay={0}>
             <Experiences locale={locale as Locale} ui={content.ui} experiences={content.experiences} />
           </FadeIn>
         </Section>
 
-        {/* 7 · Education */}
-        <Section id="education" className="py-16">
-          <FadeIn>
+        {/* ── Education — 淡紫+白 ── */}
+        <Section id="education" className="section-rhythm section-education py-20 lg:py-28">
+          <FadeIn delay={0}>
             <Education locale={locale as Locale} ui={content.ui} education={content.education} />
           </FadeIn>
         </Section>
 
-        {/* 8 · Publications */}
-        <Section id="publications" className="py-16 bg-white/70">
+        {/* ── Publications ── */}
+        <Section id="publications" className="section-rhythm section-secondary py-16 lg:py-24">
           <FadeIn>
             <Publications locale={locale as Locale} ui={content.ui} publications={content.publications} />
           </FadeIn>
         </Section>
 
-        {/* 9 · Media */}
-        <Section id="media" className="py-16">
+        {/* ── Media ── */}
+        <Section id="media" className="section-rhythm section-secondary py-16 lg:py-24">
           <FadeIn>
             <Media locale={locale as Locale} ui={content.ui} media={content.media} />
           </FadeIn>
         </Section>
 
-        {/* 10 · Additional / Campus (collapsed) */}
-        <Section id="additional" className="py-16 bg-white/70">
+        {/* ── Additional / Campus ── */}
+        <Section id="additional" className="section-rhythm section-secondary py-16 lg:py-24">
           <FadeIn>
             <AdditionalExperience locale={locale as Locale} ui={content.ui} additional={content.additional} />
           </FadeIn>
         </Section>
 
-        {/* 11 · Tools & Methods */}
-        <Section id="tools" className="py-16">
+        {/* ── Tools & Methods — 浅蓝+淡紫 ── */}
+        <Section id="tools" className="section-rhythm section-tools py-20 lg:py-28">
           <FadeIn>
             <Tools locale={locale as Locale} ui={content.ui} tools={content.tools} />
           </FadeIn>
         </Section>
 
-
-        {/* 13 · Value Bridge — why background translates (closing narrative) */}
-        <Section id="value-bridge" className="py-14 bg-gradient-to-br from-accent/[0.02] to-moss/[0.02]">
+        {/* ── Value Bridge ── */}
+        <Section id="value-bridge" className="section-rhythm section-secondary py-16 lg:py-24">
           <FadeIn>
             <ValueBridge locale={locale as Locale} ui={content.ui} valueBridge={content.valueBridge} />
           </FadeIn>
         </Section>
 
-        {/* 14 · Working Style (placeholder — fill in content) */}
-        <Section id="working-style" className="py-14 bg-white/70">
+        {/* ── Working Style ── */}
+        <Section id="working-style" className="section-rhythm section-experiences py-16 lg:py-24">
           <FadeIn>
             <WorkingStyle locale={locale as Locale} ui={content.ui} workingStyle={content.workingStyle} />
           </FadeIn>
         </Section>
 
-        {/* 15 · Contact (includes availability note — replaces standalone Open To) */}
-        <Section id="contact" className="py-16">
+        {/* ── Contact — 粉+紫 ── */}
+        <Section id="contact" className="section-rhythm section-contact py-20 lg:py-28">
           <FadeIn>
             <Contact locale={locale as Locale} ui={content.ui} cv={content.cv} contact={content.contact} />
           </FadeIn>
         </Section>
 
+        {/* Footer */}
+        <footer className="border-t border-line/60 py-10">
+          <div className="mx-auto w-full max-w-[1280px] px-6 sm:px-8 lg:px-12">
+            <div className="flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
+              <p className="text-[12px] text-ink/35">
+                © {new Date().getFullYear()} Qihui Yuan · All rights reserved
+              </p>
+              <p className="text-[12px] text-ink/28">
+                qihui-yuan.com
+              </p>
+            </div>
+          </div>
+        </footer>
+
       </main>
-    </>
+
+      <NavbarPortal locale={locale as Locale} ui={content.ui} cv={content.cv} />
+    </div>
   );
 }

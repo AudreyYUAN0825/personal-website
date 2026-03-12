@@ -1,5 +1,7 @@
-import Image from "next/image";
+"use client";
+
 import Link from "next/link";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { t } from "@/content/home";
 import type { Locale } from "@/lib/i18n";
 import type { UiStrings, HomeContent } from "@/content/types";
@@ -10,166 +12,147 @@ interface HeroProps {
   hero:   HomeContent["hero"];
 }
 
-// ── Button styles ────────────────────────────────────────────────────────────
-const btnPrimary =
-  "inline-flex items-center justify-center rounded-[10px] bg-gradient-to-r from-accent to-moss px-5 py-[11px] text-[13px] font-semibold tracking-[0.01em] text-white shadow-brand transition-all duration-200 hover:-translate-y-px hover:from-moss hover:to-accent hover:shadow-brand-hover active:translate-y-0";
-
-const btnSecondary =
-  "inline-flex items-center justify-center rounded-[10px] border border-accent/25 bg-transparent px-5 py-[11px] text-[13px] font-semibold tracking-[0.01em] text-accent transition-all duration-150 hover:border-accent/50 hover:bg-accent/[0.05]";
-
-// ── Snapshot chip ────────────────────────────────────────────────────────────
-function Chip({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="group flex cursor-default flex-col gap-0.5 rounded-lg px-2.5 py-2 transition-colors duration-200 hover:bg-accent/[0.06]">
-      <span className="text-[9px] font-bold uppercase tracking-[0.18em] text-ink/30 transition-colors duration-200 group-hover:text-accent/60">
-        {label}
-      </span>
-      <span className="text-[11px] font-medium text-ink/65 transition-colors duration-200 group-hover:text-accent">
-        {value}
-      </span>
-    </div>
-  );
-}
-
-// ── GTM process accent card ──────────────────────────────────────────────────
-
-// ── Snapshot labels ──────────────────────────────────────────────────────────
-const snapLabels: Record<Locale, { lang: string; mkt: string; focus: string; exp: string }> = {
-  zh: { lang: "语言", mkt: "市场", focus: "专注领域", exp: "国际经历" },
-  en: { lang: "Languages", mkt: "Markets", focus: "Focus", exp: "Engagements" },
-  fr: { lang: "Langues", mkt: "Marchés", focus: "Domaines", exp: "Missions" },
-};
-
 export function Hero({ locale, ui, hero }: HeroProps) {
-  const cv = ui.cv;
-  const sn = snapLabels[locale];
+  const visualRef = useRef<HTMLDivElement>(null);
+  const [parallax, setParallax] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    const rect = visualRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const inBounds =
+      e.clientX >= rect.left &&
+      e.clientX <= rect.right &&
+      e.clientY >= rect.top &&
+      e.clientY <= rect.bottom;
+    if (!inBounds) {
+      setParallax({ x: 0, y: 0 });
+      return;
+    }
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    const x = ((e.clientX - centerX) / (rect.width / 2)) * 10;
+    const y = ((e.clientY - centerY) / (rect.height / 2)) * 10;
+    setParallax({ x: Math.max(-10, Math.min(10, x)), y: Math.max(-10, Math.min(10, y)) });
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [handleMouseMove]);
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="hero-section">
 
-      {/* ── Layer A: diagonal base gradient (handled by .hero-bg on Section) ── */}
-
-      {/* ── Layer B: world map watermark ── */}
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        {/*
-          Desktop: right-aligned, 900px wide, rotated -8deg, 6.5% opacity.
-          Mobile:  centred, slightly smaller, same opacity.
-          mix-blend-mode: multiply → dark ink tints light background subtly.
-          filter: blur(0.8px) → soft watermark feel, no hard edges.
-        */}
+      {/* ── Layer 0: Very faint ambient blobs — must not change the bg color feel ── */}
+      <div className="hero-aurora-wrap" aria-hidden>
         <div
-          className="absolute inset-0"
+          className="absolute -left-20 -top-[10%] h-[680px] w-[680px] rounded-full"
           style={{
-            backgroundImage: "url('/images/world-map.svg')",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "860px auto",
-            backgroundPosition: "right -30px center",
-            opacity: 0.065,
-            transform: "rotate(-8deg) scale(1.12)",
-            filter: "blur(0.8px)",
-            mixBlendMode: "multiply",
+            background: "radial-gradient(circle,rgba(107,140,255,0.06) 0%,transparent 65%)",
+            filter: "blur(56px)",
+            animation: "aurora-drift 15s ease-in-out infinite",
+          }}
+        />
+        <div
+          className="absolute -right-16 top-[0%] h-[560px] w-[560px] rounded-full"
+          style={{
+            background: "radial-gradient(circle,rgba(107,140,255,0.04) 0%,transparent 65%)",
+            filter: "blur(60px)",
+            animation: "aurora-drift 22s ease-in-out infinite 4s",
           }}
         />
       </div>
 
-      {/* ── Layer C: radial glow behind name ── */}
-      <div
-        className="pointer-events-none absolute -left-10 top-[10%] h-[340px] w-[340px] rounded-full bg-[#165DFF]/[0.06] blur-3xl"
-        style={{ animation: "blob 22s ease-in-out infinite" }}
-      />
-      <div
-        className="pointer-events-none absolute -bottom-12 -right-8 h-72 w-72 rounded-full bg-[#00C48C]/[0.05] blur-3xl"
-        style={{ animation: "blob 26s ease-in-out infinite 4s" }}
-      />
+      {/* ── 透明柔焦玻璃背板 + 人物与文字 ── */}
+      <div className="relative w-full" style={{ zIndex: 2 }}>
+        <div className="hero-glass-panel">
+          <div className="hero-container grid grid-cols-1 lg:grid-cols-[48%_52%] lg:items-center lg:gap-0">
 
-      <div className="relative grid items-center gap-8 md:grid-cols-12 md:gap-10 lg:gap-14">
+          {/* ── LEFT: Portrait — 入场动画 + 鼠标视差 ±10px ── */}
+          <div ref={visualRef} className="hero-visual order-first w-full">
+            <div className="portrait-glow" aria-hidden />
+            <div className="portrait-light-stage" aria-hidden />
+            <div className="portrait-spectrum-arc" aria-hidden>
+              <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="hero-spectrum-gradient" x1="0" y1="0" x2="400" y2="0" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stopColor="#7DACD6" />
+                    <stop offset="50%" stopColor="#C0B9DB" />
+                    <stop offset="100%" stopColor="#E9B7D4" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M 0 200 A 200 200 0 0 1 400 200"
+                  stroke="url(#hero-spectrum-gradient)"
+                  strokeWidth="120"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </div>
+            <div
+              className="portrait-parallax-wrap"
+              style={{ transform: `translate(${parallax.x}px, ${parallax.y}px)` }}
+            >
+              <div className="portrait-entrance-wrap">
+                {/* 使用原生 img 以完整保留 PNG 透明通道，避免 Next/Image 处理 */}
+                <img
+                  src={hero.portrait.src}
+                  alt={t(hero.portrait.alt, locale)}
+                  width={1536}
+                  height={1536}
+                  className="portrait-img"
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </div>
 
-        {/* ── Portrait + GTM card — RIGHT on desktop, TOP on mobile ── */}
-        <div className="order-1 flex flex-col gap-3 md:order-last md:col-span-4">
-          {/* Portrait — constrained max-width so it never overwhelms the layout */}
-          <div className="mx-auto w-[180px] overflow-hidden rounded-2xl border border-white/50 bg-white/80 shadow-xl backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:shadow-2xl sm:w-[210px] md:w-full md:max-w-[220px] lg:max-w-[240px]">
-            <div className="relative aspect-[3/4]">
-              <Image
-                src={hero.portrait.src}
-                alt={t(hero.portrait.alt, locale)}
-                fill
-                sizes="(max-width: 640px) 180px, (max-width: 768px) 210px, 240px"
-                className="object-cover object-[center_10%]"
-                priority
-              />
+          {/* ── RIGHT: Text column ── */}
+          <div
+            className="hero-text order-last w-full max-w-[520px] px-6 pb-4 pt-4 sm:px-8 sm:pt-6 lg:px-10 lg:pl-6 lg:pt-6 lg:pb-10 xl:pl-8"
+            style={{ zIndex: 2 }}
+          >
+            {/* 1. 主标题 — Noto Serif SC，咨询风格 */}
+            <h1 className="hero-name">
+              {t(hero.name, locale)}
+            </h1>
+            <div className="hero-name-rule" aria-hidden />
+
+            {/* 2. 副标题 — 22px */}
+            <p className="hero-subtitle">
+              {t(hero.subtitle, locale)}
+            </p>
+
+            {/* 4. 说明行 — 16px，最多两行 */}
+            <p className="hero-description">
+              {t(hero.description, locale)}
+            </p>
+
+            {/* 5. 能力标签 */}
+            {hero.specialtyChips && hero.specialtyChips.length > 0 && (
+              <div className="hero-chips">
+                {hero.specialtyChips.map((chip, i) => (
+                  <span key={i} className="hero-chip">
+                    {t(chip, locale)}
+                  </span>
+                ))}
+              </div>
+            )}
+
+            {/* 6. 文字链接 — hover 下划线/颜色变化 */}
+            <div className="hero-ctas">
+              <Link href="#projects" className="hero-link hero-link-primary">
+                {ui.hero.ctaPrimary}
+              </Link>
+              <Link href="#experiences" className="hero-link">
+                {ui.hero.ctaSecondary}
+              </Link>
             </div>
-            <div className="border-t border-line bg-white/70 px-4 py-3">
-              <p className="font-display text-[13px] font-semibold leading-tight text-ink">
-                {t(hero.name, locale)}
-              </p>
-              <p className="mt-0.5 line-clamp-1 text-[11px] leading-snug text-ink/48">
-                {t(hero.role, locale)}
-              </p>
-            </div>
+          </div>
+
           </div>
         </div>
-
-        {/* ── Text column — LEFT on desktop, SECOND on mobile ── */}
-        <div className="order-2 md:order-first md:col-span-8">
-          {/* Kicker */}
-          <p className="mb-4 text-[10.5px] font-bold uppercase tracking-[0.24em] text-ink/28">
-            {ui.hero.kicker}
-          </p>
-
-          {/* Name — gradient text */}
-          <h1 className="gradient-heading font-display text-[34px] font-bold leading-[1.05] tracking-[-0.025em] sm:text-[44px] lg:text-[52px]">
-            {t(hero.name, locale)}
-          </h1>
-
-          {/* Positioning line */}
-          <p className="mt-4 text-[14px] font-semibold leading-snug text-accent sm:text-[15px]">
-            {t(hero.role, locale)}
-          </p>
-
-          {/* Specialty domain chips */}
-          {hero.specialtyChips && hero.specialtyChips.length > 0 && (
-            <div className="mt-3 flex flex-wrap gap-1.5">
-              {hero.specialtyChips.map((chip, i) => (
-                <span
-                  key={i}
-                  className={`cursor-default rounded-full border px-2.5 py-0.5 text-[10.5px] font-semibold tracking-wide transition-colors duration-150 ${
-                    i % 2 === 0
-                      ? "border-accent/20 bg-accent/[0.07] text-accent hover:bg-accent/15"
-                      : "border-moss/20 bg-moss/[0.07] text-moss hover:bg-moss/15"
-                  }`}
-                >
-                  {t(chip, locale)}
-                </span>
-              ))}
-            </div>
-          )}
-
-          {/* Tagline */}
-          <p className="mt-3 max-w-[440px] text-[14.5px] leading-[1.75] text-ink/60">
-            {t(hero.tagline, locale)}
-          </p>
-
-          {/* CTA row */}
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Link href="#projects" className={btnPrimary}>
-              {ui.hero.ctaPrimary}
-            </Link>
-            <Link href="#experiences" className={btnSecondary}>
-              {ui.hero.ctaSecondary}
-            </Link>
-          </div>
-
-          {/* Snapshot strip — desktop only */}
-          <div className="mt-7 hidden border-t border-line pt-5 md:block">
-            <div className="grid grid-cols-4 gap-1">
-              <Chip label={sn.lang}  value={ui.hero.snapshotLanguages} />
-              <Chip label={sn.mkt}   value={ui.hero.snapshotMarkets}   />
-              <Chip label={sn.focus} value={ui.hero.snapshotFocus}     />
-              <Chip label={sn.exp}   value={ui.hero.snapshotExp}       />
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   );

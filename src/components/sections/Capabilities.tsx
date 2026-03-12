@@ -4,9 +4,9 @@ import { Icon } from "@/components/ui/Icon";
 import type { Locale } from "@/lib/i18n";
 import type { UiStrings, Capability } from "@/content/types";
 
-const ACCENT = "#165DFF";
-const MOSS   = "#00C48C";
-const INK    = "#0B1120";
+const ACCENT = "#5B8CFF";
+const MOSS   = "#9FD8C5";
+const INK    = "#14213A";
 
 /* ── Mini SVG illustrations, one per capability ─────────────────────── */
 
@@ -157,11 +157,11 @@ const ILLUSTRATIONS = [
 
 /* ── Card configs ───────────────────────────────────────────────────── */
 const CARD_CONFIG = [
-  { cols: "md:col-span-4", bg: "bg-gradient-to-br from-accent/[0.06] via-white to-moss/[0.05]",   border: "border-accent/20",  iconBg: "from-accent/15 to-moss/10",  iconColor: "text-accent", hero: true  },
-  { cols: "md:col-span-2", bg: "bg-gradient-to-br from-moss/[0.07] to-white",                      border: "border-moss/20",    iconBg: "from-moss/15 to-accent/8",   iconColor: "text-moss",   hero: false },
-  { cols: "md:col-span-2", bg: "bg-white",                                                          border: "border-accent/15",  iconBg: "from-accent/10 to-accent/5", iconColor: "text-accent", hero: false },
-  { cols: "md:col-span-2", bg: "bg-gradient-to-br from-ink/[0.03] to-white",                       border: "border-ink/10",     iconBg: "from-accent/10 to-moss/8",   iconColor: "text-accent", hero: false },
-  { cols: "md:col-span-2", bg: "bg-gradient-to-br from-moss/[0.06] to-white",                      border: "border-moss/15",    iconBg: "from-moss/12 to-moss/5",     iconColor: "text-moss",   hero: false },
+  { cols: "md:col-span-4", bg: "bg-gradient-to-br from-accent/[0.05] to-transparent",  border: "border-accent/15",  iconBg: "from-accent/12 to-mint/8",   iconColor: "text-accent", hero: true  },
+  { cols: "md:col-span-2", bg: "bg-gradient-to-br from-mint/[0.06] to-transparent",    border: "border-mint/20",    iconBg: "from-mint/15 to-accent/6",   iconColor: "text-mint",   hero: false },
+  { cols: "md:col-span-2", bg: "bg-transparent",                                        border: "border-line",       iconBg: "from-accent/8 to-accent/4",  iconColor: "text-accent", hero: false },
+  { cols: "md:col-span-2", bg: "bg-gradient-to-br from-gold/[0.05] to-transparent",    border: "border-gold/20",    iconBg: "from-gold/12 to-mint/6",     iconColor: "text-accent", hero: false },
+  { cols: "md:col-span-2", bg: "bg-gradient-to-br from-lavender/[0.06] to-transparent",border: "border-lavender/20",iconBg: "from-lavender/12 to-mint/5", iconColor: "text-accent", hero: false },
 ] as const;
 
 interface CapabilitiesProps { locale: Locale; ui: UiStrings; capabilities: Capability[] }
@@ -183,8 +183,9 @@ export function Capabilities({ locale, ui, capabilities }: CapabilitiesProps) {
             <div
               key={i}
               className={[
-                "group relative overflow-hidden rounded-2xl border transition duration-300",
-                "hover:-translate-y-[2px] hover:shadow-card-hover",
+                "group relative overflow-hidden rounded-[24px] border backdrop-blur-glass transition-all duration-[420ms]",
+                "hover:-translate-y-[3px] hover:shadow-hover",
+                "bg-[rgba(255,255,255,0.55)]",
                 cfg.cols, cfg.bg, cfg.border,
                 cfg.hero ? "p-6" : "p-5",
               ].join(" ")}

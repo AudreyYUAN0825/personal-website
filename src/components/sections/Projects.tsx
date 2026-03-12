@@ -4,6 +4,7 @@ import { useState, useCallback } from "react";
 import { t } from "@/content/home";
 import { SectionHeader } from "@/components/layout/SectionHeader";
 import { Badge } from "@/components/ui/Badge";
+import { ProjectCover } from "@/components/ui/ProjectCover";
 import { ProjectModal } from "@/components/sections/ProjectModal";
 import type { Locale } from "@/lib/i18n";
 import type { UiStrings, Project } from "@/content/types";
@@ -19,54 +20,67 @@ export function Projects({ locale, ui, projects }: ProjectsProps) {
   return (
     <>
       <SectionHeader title={s.title} description={s.description} />
-      <div className="grid gap-4 md:grid-cols-2">
+
+      <div className="grid gap-5 md:grid-cols-2">
         {projects.map((p, i) => (
           <button
             key={i}
             onClick={() => setSelected(p)}
-            className="group flex flex-col gap-4 rounded-xl border border-line bg-card p-6 text-left shadow-soft transition-all duration-200 hover:border-moss/30 hover:shadow-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-moss/30"
+            className="project-card group flex flex-col text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
           >
-            <div className="flex flex-wrap gap-1.5">
-              {p.tags.map((tag, j) => (
-                <Badge key={j} variant="type">{t(tag, locale)}</Badge>
-              ))}
-            </div>
+            {/* 1. 封面视觉 */}
+            <ProjectCover slug={p.slug} />
 
-            <h3 className="font-display text-sm font-semibold leading-snug text-ink group-hover:text-moss transition-colors">
-              {t(p.title, locale)}
-            </h3>
+            {/* 2. 项目标题 */}
+            <div className="flex flex-col p-6 md:p-7">
+              <div className="mb-3 flex flex-wrap gap-1.5">
+                {p.tags.map((tag, j) => (
+                  <Badge key={j} variant={j === 0 ? "featured" : "default"}>
+                    {t(tag, locale)}
+                  </Badge>
+                ))}
+              </div>
+              <h3 className="mb-4 font-display text-[18px] font-semibold leading-snug text-ink transition-colors duration-200 group-hover:text-accent">
+                {t(p.title, locale)}
+              </h3>
 
-            {/* Metric chips */}
-            {p.metrics && p.metrics.length > 0 && (
-              <div className="flex flex-wrap gap-2">
-                {p.metrics.slice(0, 3).map((m, j) => (
-                  <div key={j} className="flex items-baseline gap-1">
-                    <span className="font-display text-[15px] font-bold text-ink">{m.value}</span>
-                    <span className="text-[10px] text-ink/45">{t(m.label, locale)}</span>
+              {/* 3. 关键数据 */}
+              {p.metrics && p.metrics.length > 0 && (
+                <div className="mb-4 flex flex-wrap gap-4">
+                  {p.metrics.slice(0, 3).map((m, j) => (
+                    <div key={j} className="flex items-baseline gap-1">
+                      <span className="font-display text-[20px] font-bold text-ink">{m.value}</span>
+                      <span className="text-[11px] font-medium text-ink/42">{t(m.label, locale)}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* 4. 问题 / 结果简介 */}
+              <div className="space-y-3 border-t border-line pt-4 text-[15px]">
+                {[
+                  { label: l.problem, text: t(p.problem, locale) },
+                  { label: l.result,  text: t(p.result, locale)  },
+                ].map(({ label, text }) => (
+                  <div key={label}>
+                    <span className="section-eyebrow">{label}</span>
+                    <p className="mt-1.5 text-[15px] leading-[1.65] text-ink/60">{text}</p>
                   </div>
                 ))}
               </div>
-            )}
 
-            <div className="space-y-3 border-t border-line pt-4 text-[13px]">
-              {[
-                { label: l.problem,  text: t(p.problem, locale)  },
-                { label: l.result,   text: t(p.result, locale)   },
-              ].map(({ label, text }) => (
-                <div key={label}>
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-ink/35">{label}</span>
-                  <p className="mt-0.5 leading-relaxed text-ink/68">{text}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-auto flex items-center justify-end border-t border-line pt-3">
-              <span className="flex items-center gap-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-ink/35 transition-colors group-hover:text-moss">
-                {l.viewDetails}
-                <svg className="h-3 w-3 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
+              {/* 5. 查看详情 */}
+              <div className="mt-5 flex items-center justify-end">
+                <span className="flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.1em] text-ink/35 transition-colors duration-200 group-hover:text-accent">
+                  {l.viewDetails}
+                  <svg
+                    className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </div>
             </div>
           </button>
         ))}
