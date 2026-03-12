@@ -18,7 +18,7 @@ const spaceGrotesk = Space_Grotesk({
 
 const notoSerifSC = Noto_Serif_SC({
   weight: ["400", "600", "700"],
-  subsets: ["latin", "chinese-simplified"],
+  subsets: ["latin"],
   variable: "--font-name",
   display: "swap",
 });
