@@ -19,7 +19,7 @@ export function Projects({ locale, ui, projects }: ProjectsProps) {
 
   return (
     <>
-      <SectionHeader title={s.title} description={s.description} />
+      <SectionHeader title={s.title} description={s.description} icon="briefcase" />
 
       <div className="grid gap-5 md:grid-cols-2">
         {projects.map((p, i) => (

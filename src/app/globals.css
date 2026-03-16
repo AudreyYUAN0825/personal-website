@@ -690,6 +690,27 @@ h1,h2,h3,h4,h5,h6 {
   transform: scale(0.9);
   transform-origin: center center;
 }
+
+/* 底部流光遮罩 — 从下向上渐变，底部 100% 与背景融合，向上渐淡，颜色与背景粉蓝一致 */
+.portrait-flow-mask {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48%;
+  background: linear-gradient(
+    to top,
+    /* 底部 100% 与下方背景融合 */
+    rgb(238, 236, 230) 0%,
+    /* 向上渐淡，背景粉蓝 #E9B7D4 #C0B9DB #7DACD6 与 #EEECE6 的柔和混合 */
+    rgba(240, 232, 235, 0.92) 20%,
+    rgba(236, 232, 240, 0.55) 45%,
+    rgba(232, 236, 242, 0.2) 72%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 5;
+}
 /* 文字入场 — translateY 24px→0 */
 .hero-name { animation: hero-text-slide 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both; }
 @keyframes hero-rule-enter {

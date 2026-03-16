@@ -1,0 +1,302 @@
+{
+  "personal": {
+    "fullName": "Qihui Yuan",
+    "fullNameZh": "袁齐惠",
+    "email_primary": "yuanqihui0825@gmail.com",
+    "email_work": "qihui.yuan@undp.org",
+    "phone": "13693348183",
+    "location": "曼谷，泰国",
+    "locationEn": "Bangkok, Thailand",
+    "nationality": "中国",
+    "linkedin": "https://www.linkedin.com/in/qihuiyuan/",
+    "website": "https://qihui-yuan.com",
+    "wechat": "（见微信二维码）",
+    "languages": [
+      { "language": "中文", "level": "母语" },
+      { "language": "英语", "level": "流利" },
+      { "language": "法语", "level": "专业" }
+    ]
+  },
+
+  "tagline": {
+    "zh": "我是专注于新能源与气候科技企业全球市场进入的国际业务从业者，依托 UNDP、OECD 及欧洲咨询公司的实践，具备跨文化沟通、结构化执行与 ESG 合规落地能力，致力于推动科技企业在国际市场的可持续增长。",
+    "en": "International business professional focused on global market entry for CleanTech and climate technology companies — grounded in UNDP, OECD, and European consulting practice."
+  },
+
+  "education": [
+    {
+      "school": "巴黎政治学院（Sciences Po）",
+      "schoolEn": "Sciences Po Paris",
+      "degree": "环境政策硕士",
+      "degreeEn": "Master of Environmental Policy",
+      "major": "欧盟气候政策与环境治理",
+      "location": "法国 巴黎",
+      "startDate": "2023-09",
+      "endDate": "2025-12",
+      "gpa": null,
+      "highlights": [
+        "国家公派全额奖学金（CSC），全球遴选录取，用于海外研究生学习。",
+        "核心课程：环境经济学、气候科学与气候干预、环境治理、计量经济学。",
+        "聚焦欧盟气候政策与全球环境治理，结合在 UNEP、OECD 及 UNDP 等国际机构的实践经历。"
+      ],
+      "tags": ["欧盟气候政策", "环境治理", "计量经济学", "CSC 奖学金"]
+    },
+    {
+      "school": "加州大学伯克利分校 + 哈佛大学",
+      "schoolEn": "UC Berkeley + Harvard University",
+      "degree": "交换项目",
+      "degreeEn": "Exchange Programme",
+      "major": "全球环境治理与国际政策",
+      "location": "美国",
+      "startDate": "2022-01",
+      "endDate": "2022-12",
+      "gpa": "3.9/4.0",
+      "highlights": [
+        "GPA：3.9/4.0",
+        "交换项目聚焦全球环境治理与国际政策框架，构建跨学科政策视野。",
+        "强化全球环境治理、国际组织运作与跨文化决策能力。"
+      ],
+      "tags": ["全球环境治理", "国际组织", "跨文化决策", "政策研究"]
+    },
+    {
+      "school": "南开大学",
+      "schoolEn": "Nankai University",
+      "degree": "政治学与公共管理本科",
+      "degreeEn": "Bachelor of Political Science & Public Administration",
+      "major": "985 / 双一流 · 辅修逻辑学",
+      "location": "中国 天津",
+      "startDate": "2019-09",
+      "endDate": "2023-06",
+      "gpa": "3.7/4.0",
+      "highlights": [
+        "专业 GPA：3.7/4.0 · 辅修逻辑学",
+        "荣誉毕业（Summa Cum Laude）。",
+        "研究方向：公共行动、气候治理、生物多样性政策与可持续发展目标（SDGs）。"
+      ],
+      "tags": ["政治学", "公共政策", "气候治理", "可持续发展"]
+    }
+  ],
+
+  "experiences": [
+    {
+      "orgZh": "联合国开发计划署 曼谷区域中心",
+      "orgEn": "UNDP — Bangkok Regional Hub",
+      "orgShort": "UNDP",
+      "role": "环境与能源团队 项目协调专员",
+      "roleEn": "Fellow, Environment & Energy Team",
+      "type": "国际机构 / Fellowship",
+      "location": "泰国 曼谷",
+      "startDate": "2025-09",
+      "endDate": null,
+      "current": true,
+      "bullets": [
+        "负责亚太区气候与能源项目组合数据整合与进度跟踪，覆盖 12 个国家、15+ 项跨国项目",
+        "协调国家办公室、政府机构与国际组织，推动跨国项目沟通与执行",
+        "支持 GEF、GCF 等气候基金资源动员分析与亚太区季度汇报"
+      ],
+      "impact": "提升团队对区域项目管线与资金进展的可视化管理能力；支持亚太区 $50M+ 项目组合的资源动员分析与季度汇报。",
+      "tags": ["气候融资", "项目组合管理", "跨国项目协调", "联合国"]
+    },
+    {
+      "orgZh": "经济合作与发展组织（OECD）— IFCMA",
+      "orgEn": "OECD — Inclusive Forum on Carbon Mitigation Approaches (IFCMA)",
+      "orgShort": "OECD",
+      "role": "初级顾问",
+      "roleEn": "Junior Consultant",
+      "type": "咨询 / Consultancy",
+      "location": "法国 巴黎",
+      "startDate": "2025-03",
+      "endDate": "2025-09",
+      "current": false,
+      "bullets": [
+        "研究并整理 50+ 国家气候政策与碳定价机制，构建标准化 IFCMA 政策数据库",
+        "设计政策数据采集与编码模板，提升跨国政策比较分析效率",
+        "向 OECD 专家团队多轮汇报，解析中国双碳政策与欧洲碳市场体系"
+      ],
+      "impact": "交付覆盖 50+ 国家气候政策的结构化数据库；提升 OECD 气候政策比较研究的数据一致性与分析效率。",
+      "tags": ["气候政策", "碳市场", "政策数据库", "OECD"]
+    },
+    {
+      "orgZh": "环境资源管理咨询公司（ERM）",
+      "orgEn": "Environmental Resources Management (ERM)",
+      "orgShort": "ERM",
+      "role": "可持续发展与市场进入咨询实习生",
+      "roleEn": "Sustainability & Market Entry Consulting Intern",
+      "type": "实习 / Internship",
+      "location": "法国 巴黎",
+      "startDate": "2024-03",
+      "endDate": "2024-10",
+      "current": false,
+      "bullets": [
+        "参与 5 个中国清洁能源企业（光伏、储能、电池）进入欧洲市场的咨询项目，涵盖 CBAM、CSRD 与欧盟电池法规",
+        "支持构建 ESG 合规差距分析矩阵与 RAG 风险框架，识别供应链、碳排放与信息披露风险",
+        "为 2 家中国客户交付欧盟合规准备报告，支持欧洲市场进入路线图制定"
+      ],
+      "impact": "为 2 家中国企业交付欧盟合规准备报告和市场进入分析，识别关键监管与供应链风险。",
+      "tags": ["ESG", "CBAM", "CSRD", "欧盟电池法规", "市场进入", "合规咨询"]
+    },
+    {
+      "orgZh": "中国科学院科技战略咨询研究院 碳中和战略研究中心",
+      "orgEn": "CASISD — Carbon Neutrality Strategy Centre",
+      "orgShort": "中科院",
+      "role": "研究助理",
+      "roleEn": "Research Assistant",
+      "type": "研究 / Research",
+      "location": "远程",
+      "startDate": "2024-02",
+      "endDate": "2024-08",
+      "current": false,
+      "bullets": [
+        "分析 168 个国家的 NDC，将光伏装机目标与当前装机容量对比，基准化对比 2030 年全球可再生能源三倍目标",
+        "构建含 10 大类、23 个子类的可再生能源政策评估框架，标准化跨国政策分类与比较",
+        "比较非洲、东南亚与拉丁美洲光伏政策，识别海外市场机遇与政策落地痛点"
+      ],
+      "impact": "产出覆盖 168 个国家的光伏政策与装机目标跨国分析报告，支持海外市场评估与战略制定。",
+      "tags": ["NDC", "光伏", "可再生能源", "政策分析", "数据分析"]
+    },
+    {
+      "orgZh": "天津弘景出国留学咨询有限公司",
+      "orgEn": "Longing Study Abroad Consulting Co., Ltd.",
+      "orgShort": "弘景咨询",
+      "role": "联合创始人 & 法定代表人",
+      "roleEn": "Co-Founder & Legal Representative",
+      "type": "创业 / Entrepreneurship",
+      "location": "中国",
+      "startDate": "2021-09",
+      "endDate": "2023-06",
+      "current": false,
+      "bullets": [
+        "主导公司注册、法务合规与运营体系搭建，完成从 0 到 1 的创业全过程",
+        "发展高校与国际机构合作，建立 5+ 合作伙伴网络",
+        "设计并验证 B2B 和 B2C 国际教育服务模式，完成 2 款核心产品的早期市场验证"
+      ],
+      "impact": "完成公司从注册到早期市场验证的全过程，建立 5+ 合作伙伴网络。",
+      "tags": ["创业", "国际商务", "运营管理"]
+    },
+    {
+      "orgZh": "联合国环境规划署（UNEP）巴黎办公室",
+      "orgEn": "United Nations Environment Programme (UNEP) — Paris Office",
+      "orgShort": "UNEP",
+      "role": "科学与政策部门 实习生",
+      "roleEn": "Science–Policy Division Intern",
+      "type": "实习 / Internship",
+      "location": "法国 巴黎",
+      "startDate": "2023-09",
+      "endDate": "2024-02",
+      "current": false,
+      "bullets": [
+        "支持生物多样性政策研究与 CBD COP16 筹备工作，梳理并比较各国 NBSAP 政策框架",
+        "协助建立 IPBES 报告的政策数据库，支持科学成果向国家政策建议的转化",
+        "参与跨机构协调会议，整理会议纪要并跟进行动事项"
+      ],
+      "impact": "支持 CBD COP16 筹备与生物多样性政策研究，协助科学成果向政策转化。",
+      "tags": ["生物多样性", "科学政策", "CBD", "IPBES", "联合国"]
+    }
+  ],
+
+  "projects": [
+    {
+      "name": "OECD IFCMA 气候政策数据库——中国气候政策结构化与数据治理",
+      "nameEn": "OECD IFCMA Climate Policy Database",
+      "role": "初级顾问（独立负责中国部分）",
+      "startDate": "2025-03",
+      "endDate": "2025-09",
+      "bullets": [
+        "按 IFCMA 分类体系整理 50+ 项中国气候减缓政策，填写 100+ 政策字段",
+        "构建 ETS 数据模型，量化 2023 年成交总额（18,114 百万元）",
+        "每周与 OECD 专家开展技术交流，推动团队对中国政策的跨组理解"
+      ],
+      "tags": ["气候政策数据库", "碳市场建模", "国际政策协作"]
+    },
+    {
+      "name": "UNDP：TCCF 亚太十国塑料循环项目区域执行监测系统",
+      "nameEn": "UNDP TCCF Plastics Circularity Regional Monitoring System",
+      "role": "Fellow（独立设计与交付）",
+      "startDate": "2025-09",
+      "endDate": null,
+      "bullets": [
+        "搭建双层跟踪框架（1 张区域总览 + 11 张国家/区域分表）",
+        "统一各国不一致的产出与指标，组织国家办公室演练测试，迭代 3-4 个主要版本",
+        "实现延误预警识别与面向捐助方的实时汇报支持"
+      ],
+      "tags": ["区域项目监测", "跨国协调", "塑料循环经济"]
+    },
+    {
+      "name": "欧盟电池法规合规准备——中国储能企业市场进入",
+      "nameEn": "EU Battery Regulation Compliance — Chinese Energy Storage Client",
+      "role": "咨询实习生（ERM）",
+      "startDate": "2024-03",
+      "endDate": "2024-10",
+      "bullets": [
+        "梳理 20+ 项欧盟电池法规核心义务，构建法规适用性矩阵",
+        "建立供应商数据成熟度矩阵与 RAG 风险矩阵，识别优先行动清单 10+ 项",
+        "交付合规差距评估与优先级路线图，为客户欧盟市场准入提供决策支持"
+      ],
+      "tags": ["EU 电池法规", "ESG 合规", "市场进入", "供应链尽调"]
+    },
+    {
+      "name": "全球 168 国光伏政策评估与市场机遇分析",
+      "nameEn": "Solar PV Policy Assessment — 168 Countries",
+      "role": "研究助理（中科院）",
+      "startDate": "2024-02",
+      "endDate": "2024-08",
+      "bullets": [
+        "分析 168 个国家 NDC，将光伏装机目标与 2030 年三倍可再生能源目标对比",
+        "构建含 10 大类 23 子类的可再生能源政策评估框架",
+        "识别非洲、东南亚与拉丁美洲市场机遇与政策落地痛点"
+      ],
+      "tags": ["NDC", "光伏", "市场评估", "政策研究"]
+    }
+  ],
+
+  "additional": [
+    {
+      "orgZh": "CARE 气候会议",
+      "role": "研究展示者",
+      "period": "2025",
+      "bullets": [
+        "在 CARE 学术会议展示气候适应融资与 SIDS 脆弱性匹配度研究",
+        "构建 30 个 GCF 项目 × 18 个 SIDS 国家数据库，与 ND-GAIN 脆弱性指数匹配分析",
+        "建立 TDS/NBS/CBA 三类适应策略分类框架，提出混合适应模型"
+      ]
+    },
+    {
+      "orgZh": "南开大学学生宣传中心",
+      "role": "媒体与传播负责人",
+      "period": "2019-09 – 2022-06",
+      "bullets": [
+        "负责校园媒体平台内容编辑与发布，累计产出 80+ 篇报道与专题文章",
+        "统筹 10+ 名编辑、摄影与新媒体成员协作，内容发布效率提升约 30%",
+        "为校园论坛与文化节设计多平台传播方案，单场触达 3000+ 名学生"
+      ]
+    },
+    {
+      "orgZh": "南开大学国际交流志愿者团队",
+      "role": "项目协调成员",
+      "period": "2021-09 – 2022-06",
+      "bullets": [
+        "参与组织 10+ 场国际学术论坛，负责会议流程协调与嘉宾接待",
+        "协助准备中英文活动材料，服务 50+ 位国际嘉宾",
+        "支持英文演讲与国际主题辩论赛事组织，吸引 100+ 名学生参与"
+      ]
+    }
+  ],
+
+  "skills": [
+    { "category": "数据与分析", "items": ["Excel / Sheets", "Python", "STATA", "Power BI"] },
+    { "category": "研究与写作", "items": ["政策分析", "文献综述", "报告写作"] },
+    { "category": "语言能力",   "items": ["中文（母语）", "英语（流利）", "法语（专业）"] }
+  ],
+
+  "openTo": {
+    "roles": ["国际商务拓展 BD", "战略咨询", "ESG 与可持续发展顾问", "国际项目管理", "市场进入 & GTM 策略", "合作伙伴关系开发"],
+    "locations": ["上海", "北京", "香港", "新加坡", "巴黎", "伦敦", "远程/全球"],
+    "visaNote": "中国境内无需签证。其他地区需要工作许可支持。"
+  },
+
+  "coverLetterSnippets": {
+    "通用开场": "我是袁齐惠，专注于新能源与气候科技企业全球市场进入的国际业务从业者。依托 UNDP、OECD 及欧洲顶级咨询公司的复合实践背景，我具备跨文化沟通、结构化执行与 ESG 合规落地能力。",
+    "核心优势": "我拥有三语工作能力（中、英、法），深耕欧盟与亚太双区域市场，能将宏观政策判断转化为可落地的业务拓展路径，为企业国际化战略提供直接支撑。",
+    "求职动机（通用）": "我希望加入贵司，将我在联合国体系与欧洲咨询的实践经验与企业级执行场景结合，推动可持续发展领域的商业落地与国际增长。"
+  }
+}

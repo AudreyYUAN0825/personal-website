@@ -171,7 +171,7 @@ export function Capabilities({ locale, ui, capabilities }: CapabilitiesProps) {
 
   return (
     <>
-      <SectionHeader title={s.title} description={s.description} />
+      <SectionHeader title={s.title} description={s.description} icon="spark" />
 
       <div className="grid grid-cols-1 gap-3 md:grid-cols-6">
         {capabilities.map((c, i) => {

@@ -75,7 +75,7 @@ export function AdditionalExperience({ locale, ui, additional }: AdditionalExper
 
   return (
     <>
-      <SectionHeader title={s.title} description={s.description} />
+      <SectionHeader title={s.title} description={s.description} icon="award" />
 
       <div className="grid gap-4 sm:grid-cols-2">
         {additional.map((exp, i) => (

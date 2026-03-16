@@ -112,7 +112,7 @@ export function Contact({ locale, ui, cv, contact }: ContactProps) {
 
   return (
     <>
-      <SectionHeader title={s.title} description={s.description} />
+      <SectionHeader title={s.title} description={s.description} icon="mail" />
 
       {/* Closing line */}
       <p className="mb-10 max-w-[500px] text-[18px] leading-[1.7] text-ink/55">

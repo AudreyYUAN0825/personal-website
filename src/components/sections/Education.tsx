@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { Locale } from "@/lib/i18n";
 import type { EducationEntry, UiStrings } from "@/content/types";
 import { t } from "@/content/home";
+import { Icon } from "@/components/ui/Icon";
 
 interface EducationProps {
   locale:    Locale;
@@ -53,7 +54,12 @@ export function Education({ locale, ui, education }: EducationProps) {
       {/* Section header */}
       <div className="mb-8">
         <p className="section-eyebrow mb-3">{ui.labels.degree}</p>
-        <h2 className="section-title">{sec.title}</h2>
+        <h2 className="section-title flex items-center gap-3">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+            <Icon name="graduation" className="h-4 w-4" />
+          </span>
+          {sec.title}
+        </h2>
         {sec.description && (
           <p className="mt-3 max-w-[520px] text-[15px] leading-[1.7] text-ink/55">{sec.description}</p>
         )}
@@ -99,7 +105,7 @@ export function Education({ locale, ui, education }: EducationProps) {
                     ].join(" ")}
                     aria-expanded={isOpen}
                   >
-                    {/* Top row: year pill + school + location */}
+                    {/* Top row: year pill + school | location */}
                     <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-1">
                       <div className="flex items-center gap-2.5">
                         <span className="shrink-0 rounded-full border border-line bg-white/60 px-2.5 py-0.5 text-[11px] font-semibold tracking-wide text-ink/40">
@@ -132,19 +138,26 @@ export function Education({ locale, ui, education }: EducationProps) {
                       <p className="mt-1 text-[11.5px] text-ink/42">{program}</p>
                     )}
 
-                    {/* Tags */}
-                    {tags.length > 0 && (
-                      <div className="mt-3 flex flex-wrap gap-1.5">
-                        {tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className={["chip text-[11.5px]", colors.badge].join(" ")}
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    )}
+                    {/* Tags + Logo — logo 底部与标签对齐，放大 30% */}
+                    <div className="mt-3 flex items-end justify-between gap-4">
+                      {tags.length > 0 ? (
+                        <div className="flex flex-wrap gap-1.5">
+                          {tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className={["chip text-[11.5px]", colors.badge].join(" ")}
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      ) : (
+                        <span />
+                      )}
+                      {entry.logo && (
+                        <img src={entry.logo} alt="" className="ml-auto h-[52px] w-auto max-w-[94px] shrink-0 object-contain object-right" />
+                      )}
+                    </div>
 
                     {/* Expandable details */}
                     <div

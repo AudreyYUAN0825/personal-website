@@ -10,7 +10,7 @@ export function Profile({ locale, ui, profile }: ProfileProps) {
   const s = ui.sections.profile;
   return (
     <>
-      <SectionHeader title={s.title} description={s.description} />
+      <SectionHeader title={s.title} description={s.description} icon="leadership" />
       <Card className="p-6 md:p-8">
         <div className="grid gap-8 md:grid-cols-3">
           <div className="md:col-span-2 space-y-4">

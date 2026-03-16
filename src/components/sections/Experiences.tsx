@@ -51,7 +51,7 @@ export function Experiences({ locale, ui, experiences }: ExperiencesProps) {
 
   return (
     <>
-      <SectionHeader title={s.title} description={s.description} />
+      <SectionHeader title={s.title} description={s.description} icon="briefcase" />
 
       <div className="relative flex gap-8">
         {/* ── Timeline rail ── */}
@@ -91,18 +91,15 @@ export function Experiences({ locale, ui, experiences }: ExperiencesProps) {
                     {/* Top row */}
                     <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-1">
                       <div className="flex items-center gap-2.5">
-                        {/* Year pill */}
                         <span className="shrink-0 rounded-full border border-line bg-white/60 px-2.5 py-0.5 text-[11px] font-semibold tracking-wide text-ink/40">
                           {year}
                         </span>
-                        {/* Org name */}
                         <span className="font-display text-[18px] font-semibold leading-snug text-ink transition-colors duration-200 group-hover:text-accent">
                           {t(exp.org, locale)}
                         </span>
                       </div>
                       <div className="flex items-center gap-2.5">
                         <span className="text-[12px] text-ink/38">{t(exp.location, locale)}</span>
-                        {/* Chevron */}
                         <svg
                           viewBox="0 0 16 16" fill="none" stroke="currentColor"
                           strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
@@ -116,24 +113,38 @@ export function Experiences({ locale, ui, experiences }: ExperiencesProps) {
                       </div>
                     </div>
 
-                        {/* Role */}
-                        <p className={`mt-1.5 text-[15px] font-medium leading-snug ${c.role}`}>
-                          {t(exp.role, locale)}
-                        </p>
+                    {/* Role */}
+                    <p className={`mt-1.5 text-[15px] font-medium leading-snug ${c.role}`}>
+                      {t(exp.role, locale)}
+                    </p>
 
-                        {/* Period */}
-                        <p className="mt-1 text-[14px] text-ink/38">{period}</p>
+                    {/* Period */}
+                    <p className="mt-1 text-[14px] text-ink/38">{period}</p>
 
-                    {/* Tags */}
-                    {exp.tags.length > 0 && (
-                      <div className="mt-3 flex flex-wrap gap-1.5">
-                        {exp.tags.slice(0, 4).map((tag, j) => (
-                          <span key={j} className={["chip text-[11.5px]", c.badge].join(" ")}>
-                            {t(tag, locale)}
-                          </span>
-                        ))}
-                      </div>
-                    )}
+                    {/* Tags + Logo — logo 底部与标签对齐，放大 30% */}
+                    <div className="mt-3 flex items-end justify-between gap-4">
+                      {exp.tags.length > 0 ? (
+                        <div className="flex flex-wrap gap-1.5">
+                          {exp.tags.slice(0, 4).map((tag, j) => (
+                            <span key={j} className={["chip text-[11.5px]", c.badge].join(" ")}>
+                              {t(tag, locale)}
+                            </span>
+                          ))}
+                        </div>
+                      ) : (
+                        <span />
+                      )}
+                      {exp.logo && (
+                        <img
+                          src={exp.logo}
+                          alt=""
+                          className={[
+                            "ml-auto w-auto shrink-0 object-contain object-right",
+                            exp.logoSize === "small" ? "h-[42px] max-w-[75px]" : "h-[52px] max-w-[94px]",
+                          ].join(" ")}
+                        />
+                      )}
+                    </div>
 
                     {/* Expandable detail */}
                     <div className={[

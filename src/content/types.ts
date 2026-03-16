@@ -15,6 +15,8 @@ export type Experience = {
   category:  ExperienceCategory;
   slug:      string;
   org:       LocalizedText;
+  logo?:     string;  // /images/logos/xxx.png
+  logoSize?: "default" | "small";  // small = 80%
   role:      LocalizedText;
   period:    { start: string; end: string | null };
   location:  LocalizedText;
@@ -74,6 +76,7 @@ export type CredentialLink = {
 export type EducationEntry = {
   id:          string;
   school:      LocalizedText;
+  logo?:       string;  // /images/logos/xxx.png
   degree:      LocalizedText;
   program?:    LocalizedText;
   location:    LocalizedText;

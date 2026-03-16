@@ -5,7 +5,6 @@ import { t } from "@/content/home";
 import { SectionHeader } from "@/components/layout/SectionHeader";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
-import { ExternalLinkIcon } from "@/components/ui/ExternalLinkIcon";
 import type { Locale } from "@/lib/i18n";
 import type { UiStrings, PublicationItem } from "@/content/types";
 
@@ -17,7 +16,7 @@ export function Publications({ locale, ui, publications }: PublicationsProps) {
 
   return (
     <>
-      <SectionHeader title={s.title} description={s.description} />
+      <SectionHeader title={s.title} description={s.description} icon="doc" />
       <Card>
         <ul className="divide-y divide-line">
           {publications.map((pub, i) => {
@@ -49,27 +48,27 @@ export function Publications({ locale, ui, publications }: PublicationsProps) {
 
                   {/* Text */}
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-ink">{t(pub.title, locale)}</p>
+                    {!hasGroup && pub.href && pub.href !== "#" ? (
+                      <a
+                        href={pub.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-medium text-ink transition-colors hover:text-accent"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {t(pub.title, locale)}
+                      </a>
+                    ) : (
+                      <p className="text-sm font-medium text-ink">{t(pub.title, locale)}</p>
+                    )}
                     <p className="mt-0.5 text-[12px] text-ink/50">
                       {t(pub.outlet, locale)} · {pub.year}
                     </p>
                     <p className="mt-1 text-[12px] leading-relaxed text-ink/58">{t(pub.summary, locale)}</p>
                   </div>
 
-                  {/* Right: external link OR chevron */}
-                  <div className="mt-1 shrink-0 flex items-center gap-2">
-                    {!hasGroup && pub.href && pub.href !== "#" && (
-                      <a
-                        href={pub.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-ink/40 transition hover:text-accent"
-                        aria-label="Open link"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <ExternalLinkIcon />
-                      </a>
-                    )}
+                  {/* Right: chevron for expandable groups */}
+                  <div className="mt-1 shrink-0 flex items-center">
                     {hasGroup && (
                       <svg
                         viewBox="0 0 16 16" fill="none" stroke="currentColor"
@@ -98,24 +97,24 @@ export function Publications({ locale, ui, publications }: PublicationsProps) {
                             {j + 1}
                           </span>
                           <div className="flex-1 min-w-0">
-                            <p className="text-[12.5px] font-medium leading-snug text-ink/80">
-                              {t(sub.title, locale)}
-                            </p>
+                            {sub.href ? (
+                              <a
+                                href={sub.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-[12.5px] font-medium leading-snug text-ink/80 transition-colors hover:text-accent"
+                              >
+                                {t(sub.title, locale)}
+                              </a>
+                            ) : (
+                              <p className="text-[12.5px] font-medium leading-snug text-ink/80">
+                                {t(sub.title, locale)}
+                              </p>
+                            )}
                             <p className="mt-0.5 text-[11px] text-ink/40">
                               {t(sub.summary, locale)}
                             </p>
                           </div>
-                          {sub.href && (
-                            <a
-                              href={sub.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="mt-0.5 shrink-0 text-ink/35 transition hover:text-accent"
-                              aria-label="DOI link"
-                            >
-                              <ExternalLinkIcon />
-                            </a>
-                          )}
                         </li>
                       ))}
                     </ul>

@@ -105,6 +105,8 @@ export function Hero({ locale, ui, hero }: HeroProps) {
                   decoding="async"
                 />
               </div>
+              {/* 底部流光遮罩 — 从下向上渐变，底部与背景融合，向上渐淡，颜色呼应 portrait 背部 */}
+              <div className="portrait-flow-mask" aria-hidden />
             </div>
           </div>
 

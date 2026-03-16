@@ -16,7 +16,10 @@ export function WorkingStyle({ locale, ui, workingStyle }: WorkingStyleProps) {
     <div>
       {/* Section header */}
       <div className="mb-6">
-        <h2 className="gradient-heading font-display text-2xl font-semibold tracking-tight sm:text-3xl">
+        <h2 className="gradient-heading font-display text-2xl font-semibold tracking-tight sm:text-3xl flex items-center gap-3">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent/10 text-accent">
+            <Icon name="execution" className="h-4 w-4" />
+          </span>
           {sec.title}
         </h2>
         <p className="mt-1.5 text-sm leading-relaxed text-ink/60">{sec.description}</p>

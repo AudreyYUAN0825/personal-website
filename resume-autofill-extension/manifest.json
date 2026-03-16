@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Qihui Resume Reference",
+  "version": "2.0",
+  "description": "Floating resume reference panel — click any field to copy. 简历参考面板，点击字段一键复制。",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabs",
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_icon": {
+      "16":  "icons/icon16.png",
+      "48":  "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "袁齐惠简历参考面板"
+  },
+  "icons": {
+    "16":  "icons/icon16.png",
+    "48":  "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["profile.json", "sidebar.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

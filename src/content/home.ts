@@ -194,6 +194,7 @@ export function getHomeContent(locale: Locale): HomeContent {
       {
         category: "key", slug: "undp-bangkok",
         org:      { zh: "联合国开发计划署 曼谷区域中心", en: "United Nations Development Programme — Bangkok Regional Hub", fr: "PNUD — Hub Régional Bangkok" },
+        logo:     "/images/logos/undp.png",
         role:     { zh: "环境与能源团队 项目协调专员",  en: "Fellow, Environment & Energy Team", fr: "Fellow, Équipe Environnement & Énergie" },
         period:   { start: "2025-09", end: null },
         location: { zh: "泰国 曼谷", en: "Bangkok, Thailand", fr: "Bangkok, Thaïlande" },
@@ -251,6 +252,7 @@ export function getHomeContent(locale: Locale): HomeContent {
       },
       {
         category: "key", slug: "oecd-ifcma",
+        logo: "/images/logos/oecd.png",
         org:  {
           zh: "经济合作与发展组织（OECD）— 碳减缓路径包容性论坛（IFCMA）",
           en: "Organisation for Economic Co-operation and Development — Inclusive Forum on Carbon Mitigation Approaches (IFCMA)",
@@ -314,6 +316,7 @@ export function getHomeContent(locale: Locale): HomeContent {
       },
       {
         category: "key", slug: "erm-paris",
+        logo: "/images/logos/erm.png",
         org:  { zh: "ERM 环境资源管理咨询（ERM）", en: "Environmental Resources Management (ERM)", fr: "Environmental Resources Management (ERM)" },
         role: { zh: "可持续发展与市场进入咨询实习生", en: "Sustainability & Market Entry Consulting Intern", fr: "Stagiaire Conseil Développement Durable & Entrée sur les Marchés" },
         period: { start: "2024-03", end: "2024-10" },
@@ -373,6 +376,7 @@ export function getHomeContent(locale: Locale): HomeContent {
       },
       {
         category: "key", slug: "cas-carbon",
+        logo: "/images/logos/cas.png",
         org:  {
           zh: "中国科学院科技战略咨询研究院（CASISD）碳中和战略中心",
           en: "Chinese Academy of Sciences Institute of Science and Development (CASISD) — Carbon Neutrality Strategy Centre",
@@ -436,6 +440,7 @@ export function getHomeContent(locale: Locale): HomeContent {
       },
       {
         category: "key", slug: "startup-founder",
+        logo: "/images/logos/longing.png",
         org:  {
           zh: "天津朗意斯峻留学服务咨询有限公司",
           en: "Longing Study Abroad Consulting Co., Ltd. (Tianjin)",
@@ -501,6 +506,8 @@ export function getHomeContent(locale: Locale): HomeContent {
       },
       {
         category: "key", slug: "unido-beijing",
+        logo: "/images/logos/unido.svg",
+        logoSize: "small",
         org:  {
           zh: "联合国工业发展组织（UNIDO）北京办事处",
           en: "United Nations Industrial Development Organization (UNIDO) — Beijing Office",
@@ -562,6 +569,7 @@ export function getHomeContent(locale: Locale): HomeContent {
       },
       {
         category: "key", slug: "wfeo",
+        logo: "/images/logos/wfeo.png",
         org: {
           zh: "世界工程组织联合会（WFEO）主席办公室",
           en: "World Federation of Engineering Organisations (WFEO) — President's Office",
@@ -1110,6 +1118,7 @@ export function getHomeContent(locale: Locale): HomeContent {
     education: [
       {
         id: "sciences-po",
+        logo: "/images/logos/sciences-po.svg",
         school:   { zh: "巴黎政治学院（Sciences Po）", en: "Sciences Po Paris", fr: "Sciences Po Paris" },
         degree:   { zh: "环境政策硕士",                 en: "Master of Environmental Policy", fr: "Master de Politique Environnementale" },
         program:  { zh: "欧盟气候政策与环境治理",        en: "EU Climate Policy & Environmental Governance", fr: "Politique Climatique UE & Gouvernance Environnementale" },
@@ -1141,6 +1150,7 @@ export function getHomeContent(locale: Locale): HomeContent {
       },
       {
         id: "uc-berkeley",
+        logo: "/images/logos/uc-berkeley.svg",
         school:   { zh: "加州大学伯克利分校 + 哈佛大学", en: "UC Berkeley + Harvard University", fr: "UC Berkeley + Université Harvard" },
         degree:   { zh: "交换项目",                       en: "Exchange Programme",               fr: "Programme d'Échange" },
         program:  { zh: "全球环境治理与国际政策",           en: "Global Environmental Governance & International Policy", fr: "Gouvernance Environnementale Mondiale & Politique Internationale" },
@@ -1172,6 +1182,7 @@ export function getHomeContent(locale: Locale): HomeContent {
       },
       {
         id: "nankai",
+        logo: "/images/logos/nankai.svg",
         school:   { zh: "南开大学",              en: "Nankai University",                        fr: "Université Nankai" },
         degree:   { zh: "政治学与公共管理本科",   en: "Bachelor of Political Science & Public Administration", fr: "Licence Science Politique & Administration Publique" },
         program:  { zh: "985 / 双一流 · 辅修逻辑学", en: "985 / Double First-Class · Minor in Logic", fr: "985 / Double Première Classe · Mineure Logique" },
