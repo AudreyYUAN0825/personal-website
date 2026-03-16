@@ -66,7 +66,7 @@ export function Hero({ locale, ui, hero }: HeroProps) {
       {/* ── 透明柔焦玻璃背板 + 人物与文字 ── */}
       <div className="relative w-full" style={{ zIndex: 2 }}>
         <div className="hero-glass-panel">
-          <div className="hero-container grid grid-cols-1 lg:grid-cols-[48%_52%] lg:items-center lg:gap-0">
+          <div className="hero-container grid grid-cols-1 lg:grid-cols-[55%_45%] lg:items-center lg:gap-0">
 
           {/* ── LEFT: Portrait — 入场动画 + 鼠标视差 ±10px ── */}
           <div ref={visualRef} className="hero-visual order-first w-full">

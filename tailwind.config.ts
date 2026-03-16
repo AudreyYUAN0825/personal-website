@@ -16,15 +16,16 @@ const config: Config = {
 
         // Layer 2: text
         ink:     "#16233B",                      // primary text — deep navy
-        ink2:    "#5E6878",                      // secondary text
-        ink3:    "#9098A6",                      // muted text
+        ink2:    "#4A5568",                      // secondary — improved contrast
+        ink3:    "#718096",                      // muted
 
-        // Layer 3: Five-colour brand system
-        blue:         "#33539E",   // primary   — buttons, links, active
-        "blue-light": "#7DACD6",   // secondary — chip tints, stat values
-        lavender:     "#C0B9DB",   // atmosphere — card borders, bg washes
-        pink:         "#E9B7D4",   // atmosphere — specialty tags
-        rose:         "#A5678E",   // emphasis   — featured badges
+        // Layer 3: Brand — 1 dominant + accents + Climate
+        blue:         "#33539E",   // DOMINANT — buttons, links, active
+        "blue-light": "#7DACD6",   // accent — chip tints, stat values
+        climate:      "#2D7A5E",   // Climate/Energy — earth green
+        lavender:     "#C0B9DB",   // subtle — card borders
+        pink:         "#E9B7D4",   // subtle — specialty tags
+        rose:         "#A5678E",   // emphasis — featured badges
 
         // Legacy aliases
         accent:        "#33539E",
@@ -40,9 +41,8 @@ const config: Config = {
         moss:    "#7DACD6",
       },
       fontFamily: {
-        sans:    ["var(--font-inter)", "Inter", "SF Pro Text",    "Helvetica Neue", "Arial", "sans-serif"],
-        display: ["var(--font-inter)", "Inter", "SF Pro Display", "Helvetica Neue", "Arial", "sans-serif"],
-        space:   ["var(--font-space)", "Inter", "SF Pro Display", "Helvetica Neue", "Arial", "sans-serif"],
+        sans:    ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
+        display: ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
       },
       fontSize: {
         "display": ["clamp(48px,6vw,84px)", { lineHeight: "0.96", letterSpacing: "-0.04em", fontWeight: "700" }],

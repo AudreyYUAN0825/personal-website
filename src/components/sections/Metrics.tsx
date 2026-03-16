@@ -71,7 +71,7 @@ function MetricCard({ m, locale }: { m: Metric; locale: Locale }) {
         name={m.iconKey}
         className="icon-pulse h-[15px] w-[15px] text-moss"
       />
-      <p className="mt-1 font-space text-[32px] font-bold leading-none tracking-[-0.04em] text-ink">
+      <p className="mt-1 font-display text-[32px] font-bold leading-none tracking-[-0.04em] text-ink">
         {triggered ? `${animated}${suffix}` : "0"}
       </p>
       <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-ink/50">

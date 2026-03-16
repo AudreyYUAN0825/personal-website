@@ -10,17 +10,18 @@
   --bg-secondary: #F8F6F2;           /* slightly elevated panels */
   --bg-card:      rgba(255,255,255,0.56);  /* glass cards */
 
-  /* Layer 2: Text */
+  /* Layer 2: Text — stronger contrast */
   --ink:   #16233B;   /* primary — deep navy */
-  --ink2:  #5E6878;   /* secondary — cool slate */
-  --ink3:  #9098A6;   /* muted — light grey-blue */
+  --ink2:  #4A5568;   /* secondary — slate (improved readability) */
+  --ink3:  #718096;   /* muted */
 
-  /* Layer 3: Five-colour brand system */
-  --blue:         #33539E;   /* primary   — buttons, links, active */
-  --blue-light:   #7DACD6;   /* secondary — chip tints, stat values, dividers */
-  --lavender:     #C0B9DB;   /* atmosphere — card borders, bg wash */
-  --pink:         #E9B7D4;   /* atmosphere — specialty tags, highlights */
-  --rose:         #A5678E;   /* emphasis   — featured badges, strong accents */
+  /* Layer 3: Brand — 1 dominant + 2 accents + Climate */
+  --blue:         #33539E;   /* DOMINANT — buttons, links, active */
+  --blue-light:   #7DACD6;   /* accent — chip tints, stat values */
+  --climate:      #2D7A5E;   /* Climate/Energy — earth green accent */
+  --lavender:     #C0B9DB;   /* subtle — card borders, bg wash */
+  --pink:         #E9B7D4;   /* subtle — specialty tags */
+  --rose:         #A5678E;   /* emphasis — featured badges */
 
   /* Legacy alias so existing code doesn't break */
   --accent:       #33539E;
@@ -55,7 +56,7 @@ html {
 }
 
 body {
-  font-family: var(--font-inter), "Inter", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-sans), "Inter", system-ui, sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.65;
@@ -66,12 +67,12 @@ body {
      6 radial sources create an organic colour field, not flat paint.
      Base is warm-neutral; colour stops are very low opacity.               */
   background:
-    radial-gradient(ellipse 55% 40% at  8%  6%,  rgba(51,83,158,0.07),    transparent),
-    radial-gradient(ellipse 50% 38% at 92% 10%,  rgba(125,172,214,0.07),  transparent),
-    radial-gradient(ellipse 45% 36% at 18% 52%,  rgba(192,185,219,0.055), transparent),
+    radial-gradient(ellipse 55% 40% at  8%  6%,  rgba(51,83,158,0.08),    transparent),
+    radial-gradient(ellipse 50% 38% at 92% 10%,  rgba(45,122,94,0.05),   transparent),
+    radial-gradient(ellipse 45% 36% at 18% 52%,  rgba(125,172,214,0.06), transparent),
     radial-gradient(ellipse 55% 42% at 82% 54%,  rgba(125,172,214,0.05),  transparent),
-    radial-gradient(ellipse 48% 38% at 30% 94%,  rgba(233,183,212,0.06),  transparent),
-    radial-gradient(ellipse 52% 40% at 76% 90%,  rgba(192,185,219,0.05),  transparent),
+    radial-gradient(ellipse 48% 38% at 30% 94%,  rgba(192,185,219,0.04),  transparent),
+    radial-gradient(ellipse 52% 40% at 76% 90%,  rgba(192,185,219,0.04),  transparent),
     #F6F4EF;
   background-attachment: fixed;
 }
@@ -87,7 +88,7 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 220px 220px;
-  opacity: 0.028;
+  opacity: 0.042;
   mix-blend-mode: overlay;
 }
 
@@ -162,7 +163,7 @@ h1,h2,h3,h4,h5,h6 {
 
 /* Hero Title — reduced 8% (56→52px) so portrait stays primary focus */
 .display-title {
-  font-family: var(--font-inter), "Inter", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-sans), "Outfit", "Inter", system-ui, sans-serif;
   font-size: 52px;
   line-height: 1.06;
   font-weight: 700;
@@ -179,7 +180,7 @@ h1,h2,h3,h4,h5,h6 {
 
 /* Section Title — reduced 8% (36→33px) */
 .section-title {
-  font-family: var(--font-inter), "Inter", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-sans), "Outfit", "Inter", system-ui, sans-serif;
   font-size: 33px;
   line-height: 1.14;
   font-weight: 600;
@@ -192,7 +193,7 @@ h1,h2,h3,h4,h5,h6 {
 
 /* Section eyebrow label */
 .section-eyebrow {
-  font-family: var(--font-inter), "Inter", sans-serif;
+  font-family: var(--font-sans), "Inter", system-ui, sans-serif;
   font-size: 11px;
   line-height: 1.2;
   font-weight: 600;
@@ -221,7 +222,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 /* 第二层级：副标题 — 22px */
 .hero-subtitle {
-  font-family: var(--font-inter), "Inter", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-sans), "Outfit", "Inter", system-ui, sans-serif;
   font-size: 22px;
   line-height: 1.6;
   font-weight: 500;
@@ -231,7 +232,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 /* 说明行 — 16px，最多两行 */
 .hero-description {
-  font-family: var(--font-inter), "Inter", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-sans), "Inter", system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   font-weight: 400;
@@ -258,11 +259,11 @@ h1,h2,h3,h4,h5,h6 {
   font-size: 14px;
   font-weight: 500;
 }
-.hero-chip:nth-child(1) { background: #C0B9DB; color: #1F2A44; }
-.hero-chip:nth-child(2) { background: #E9B7D4; color: #1F2A44; }
+.hero-chip:nth-child(1) { background: #2D7A5E; color: #fff; }
+.hero-chip:nth-child(2) { background: #7DACD6; color: #1F2A44; }
 .hero-chip:nth-child(3) { background: #A5678E; color: #fff; }
-.hero-chip:nth-child(1):hover { background: #b5a8ce; }
-.hero-chip:nth-child(2):hover { background: #e0a9c4; }
+.hero-chip:nth-child(1):hover { background: #246b52; }
+.hero-chip:nth-child(2):hover { background: #6b9bc4; }
 .hero-chip:nth-child(3):hover { background: #935a7a; }
 /* 文字链接 — 极简，无圆角无描边，hover 时下划线或颜色变化 */
 .hero-ctas {
@@ -681,14 +682,14 @@ h1,h2,h3,h4,h5,h6 {
   z-index: 3;
   display: block;
   width: auto;
-  height: 520px;
+  height: 600px;
   max-width: 100%;
   object-fit: contain;
-  object-position: center center;
+  object-position: center bottom;
   -webkit-user-drag: none;
   user-select: none;
-  transform: scale(0.9);
-  transform-origin: center center;
+  transform: scale(1.08);
+  transform-origin: center bottom;
 }
 
 /* 底部流光遮罩 — 从下向上渐变，底部 100% 与背景融合，向上渐淡，颜色与背景粉蓝一致 */
@@ -731,7 +732,7 @@ h1,h2,h3,h4,h5,h6 {
 @media (max-width: 1024px) {
   .hero-section { padding: 96px 32px 48px; }
   .hero-glass-panel { margin: 0 16px; padding: 20px 20px 24px; border-radius: 24px; }
-  .portrait-img { height: 440px; transform: scale(0.88); }
+  .portrait-img { height: 500px; transform: scale(1.02); transform-origin: center bottom; }
   .hero-visual  { min-height: 420px; margin-bottom: 0; }
   .hero-text    { margin-top: 0; }
   .portrait-light-stage { width: 360px; height: 400px; }
@@ -740,7 +741,7 @@ h1,h2,h3,h4,h5,h6 {
 @media (max-width: 640px) {
   .hero-section { padding: 88px 20px 40px; }
   .hero-glass-panel { margin: 0 12px; padding: 16px 16px 20px; border-radius: 20px; }
-  .portrait-img { height: 360px; transform: scale(0.85); }
+  .portrait-img { height: 420px; transform: scale(1); transform-origin: center bottom; }
   .hero-text    { margin-top: 0; }
   .hero-visual  { min-height: 360px; margin-bottom: 0; }
   .portrait-light-stage { width: 300px; height: 340px; filter: blur(60px); }
@@ -759,14 +760,14 @@ h1,h2,h3,h4,h5,h6 {
   bottom: 0;
   width: 2px;
   border-radius: 2px;
-  /* Rail fades through the five-colour palette top-to-bottom */
+  /* Rail: primary blue → Climate green → accent */
   background: linear-gradient(
     180deg,
     rgba(51,83,158,0.30)   0%,
-    rgba(125,172,214,0.25) 30%,
-    rgba(192,185,219,0.20) 60%,
-    rgba(165,103,142,0.12) 85%,
-    rgba(233,183,212,0.06) 100%
+    rgba(45,122,94,0.22)   35%,
+    rgba(125,172,214,0.20) 65%,
+    rgba(165,103,142,0.10) 90%,
+    rgba(233,183,212,0.05) 100%
   );
 }
 .timeline-dot {
@@ -813,7 +814,7 @@ h1,h2,h3,h4,h5,h6 {
     background 400ms ease;
 }
 .project-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-6px) scale(1.008);
   border-color: rgba(192,185,219,0.55);
   box-shadow:
     0 0 0 1px rgba(192,185,219,0.22),
@@ -851,8 +852,16 @@ h1,h2,h3,h4,h5,h6 {
   flex-shrink: 0;
   transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.project-card:hover .project-cover {
+/* 作为整卡背景时的样式 */
+.project-cover--bg {
+  flex-shrink: 0;
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.project-card:hover .project-cover:not(.project-cover--bg) {
   transform: scale(1.02);
+}
+.project-card:hover .project-cover--bg {
+  transform: scale(1.03);
 }
 .project-cover::after {
   content: "";
@@ -867,8 +876,38 @@ h1,h2,h3,h4,h5,h6 {
   opacity: 0;
   transition: opacity 400ms ease;
 }
-.project-card:hover .project-cover::after {
+.project-card:hover .project-cover:not(.project-cover--bg)::after {
   opacity: 1;
+}
+
+/* ── 整卡背景模式：封面 + 遮罩 + 内容 ───────────────────────────────────────── */
+.project-card--bg-cover {
+  background: transparent;
+}
+.project-card--bg-cover:hover {
+  background: transparent;
+}
+.project-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.12) 0%,
+    rgba(250,249,246,0.45) 40%,
+    rgba(250,249,246,0.82) 75%,
+    rgba(250,249,246,0.95) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+.project-card--bg-cover:hover .project-card-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.18) 0%,
+    rgba(250,249,246,0.5) 40%,
+    rgba(250,249,246,0.85) 75%,
+    rgba(250,249,246,0.96) 100%
+  );
 }
 
 /* ── Section reveal animation ────────────────────────────────────────────────── */
@@ -986,12 +1025,12 @@ h1,h2,h3,h4,h5,h6 {
   border-radius: inherit;
 }
 
-/* Projects — 蓝 + 紫 */
+/* Projects — 蓝 + Climate 绿 */
 .section-projects::before {
   background:
-    radial-gradient(ellipse 80% 60% at 15% 30%,  rgba(51,83,158,0.06)   0%, transparent 100%),
-    radial-gradient(ellipse 70% 55% at 85% 70%,  rgba(192,185,219,0.07) 0%, transparent 100%),
-    radial-gradient(ellipse 50% 40% at 55% 50%,  rgba(125,172,214,0.04) 0%, transparent 100%);
+    radial-gradient(ellipse 80% 60% at 15% 30%,  rgba(51,83,158,0.07)   0%, transparent 100%),
+    radial-gradient(ellipse 70% 55% at 85% 70%,  rgba(45,122,94,0.06)  0%, transparent 100%),
+    radial-gradient(ellipse 50% 40% at 55% 50%,  rgba(125,172,214,0.05) 0%, transparent 100%);
 }
 
 /* Experiences — 白 + 浅蓝 */

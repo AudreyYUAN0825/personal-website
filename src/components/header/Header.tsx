@@ -69,7 +69,7 @@ export function Header({ locale, ui, cv, className }: HeaderProps) {
           <span className="font-display text-[14px] font-medium tracking-[-0.01em] text-[rgba(20,20,20,0.65)] transition-colors group-hover:text-[rgba(20,20,20,0.95)]">
             {ui.hero.name.split("·")[0].trim()}
           </span>
-          <span className="mt-0.5 text-[11px] font-medium uppercase tracking-[0.14em] text-[rgba(20,20,20,0.5)]">
+          <span className="mt-0.5 text-[11px] font-medium uppercase tracking-[0.14em] text-[rgba(45,122,94,0.7)]">
             Climate · Energy · International
           </span>
         </Link>

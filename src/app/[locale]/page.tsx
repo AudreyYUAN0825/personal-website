@@ -33,11 +33,9 @@ export default async function HomePage({
         {/* 1 · Hero — full-bleed, no Section wrapper, handles own padding */}
         <Hero locale={locale as Locale} ui={content.ui} hero={content.hero} />
 
-        {/* ── Projects — 蓝+紫 ── */}
+        {/* ── Projects — 蓝+紫，卡片交错入场 ── */}
         <Section id="projects" className="section-rhythm section-projects relative py-20 lg:py-28" style={{ zIndex: 10 }}>
-          <FadeIn delay={0}>
-            <Projects locale={locale as Locale} ui={content.ui} projects={content.projects} />
-          </FadeIn>
+          <Projects locale={locale as Locale} ui={content.ui} projects={content.projects} />
         </Section>
 
         {/* ── Key Experiences — 白+浅蓝 ── */}

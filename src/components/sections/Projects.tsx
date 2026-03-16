@@ -6,6 +6,7 @@ import { SectionHeader } from "@/components/layout/SectionHeader";
 import { Badge } from "@/components/ui/Badge";
 import { ProjectCover } from "@/components/ui/ProjectCover";
 import { ProjectModal } from "@/components/sections/ProjectModal";
+import { FadeIn } from "@/components/ui/FadeIn";
 import type { Locale } from "@/lib/i18n";
 import type { UiStrings, Project } from "@/content/types";
 
@@ -19,20 +20,28 @@ export function Projects({ locale, ui, projects }: ProjectsProps) {
 
   return (
     <>
-      <SectionHeader title={s.title} description={s.description} icon="briefcase" />
+      <FadeIn>
+        <SectionHeader title={s.title} description={s.description} icon="briefcase" />
+      </FadeIn>
 
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-5 md:grid-cols-2 md:grid-rows-[auto_auto_auto]">
         {projects.map((p, i) => (
+          <FadeIn key={i} delay={i * 80} className="h-full">
           <button
             key={i}
             onClick={() => setSelected(p)}
-            className="project-card group flex flex-col text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
+            className={`project-card project-card--bg-cover group flex flex-col text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 ${
+              i === 0 || i === 3 ? "min-h-[360px] md:col-span-2" : "min-h-[320px]"
+            }`}
           >
-            {/* 1. 封面视觉 */}
-            <ProjectCover slug={p.slug} />
+            {/* 1. 封面作为整卡背景 */}
+            <ProjectCover slug={p.slug} asBackground />
 
-            {/* 2. 项目标题 */}
-            <div className="flex flex-col p-6 md:p-7">
+            {/* 2. 半透明白/奶油色遮罩，保证文字可读 */}
+            <div className="project-card-overlay" aria-hidden />
+
+            {/* 3. 项目标题 + 数据 + 查看详情 */}
+            <div className="relative z-10 flex flex-1 flex-col justify-end p-6 md:p-7">
               <div className="mb-3 flex flex-wrap gap-1.5">
                 {p.tags.map((tag, j) => (
                   <Badge key={j} variant={j === 0 ? "featured" : "default"}>
@@ -56,21 +65,8 @@ export function Projects({ locale, ui, projects }: ProjectsProps) {
                 </div>
               )}
 
-              {/* 4. 问题 / 结果简介 */}
-              <div className="space-y-3 border-t border-line pt-4 text-[15px]">
-                {[
-                  { label: l.problem, text: t(p.problem, locale) },
-                  { label: l.result,  text: t(p.result, locale)  },
-                ].map(({ label, text }) => (
-                  <div key={label}>
-                    <span className="section-eyebrow">{label}</span>
-                    <p className="mt-1.5 text-[15px] leading-[1.65] text-ink/60">{text}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* 5. 查看详情 */}
-              <div className="mt-5 flex items-center justify-end">
+              {/* 4. 查看详情 — 问题与结果在弹窗中展示 */}
+              <div className="mt-auto flex items-center justify-end pt-2">
                 <span className="flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.1em] text-ink/35 transition-colors duration-200 group-hover:text-accent">
                   {l.viewDetails}
                   <svg
@@ -83,6 +79,7 @@ export function Projects({ locale, ui, projects }: ProjectsProps) {
               </div>
             </div>
           </button>
+          </FadeIn>
         ))}
       </div>
 

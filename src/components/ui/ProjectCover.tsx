@@ -227,14 +227,20 @@ const DEFAULT_COVER = {
 
 interface ProjectCoverProps {
   slug: string;
+  /** 作为整卡背景时使用，填满父容器 */
+  asBackground?: boolean;
 }
 
-export function ProjectCover({ slug }: ProjectCoverProps) {
+export function ProjectCover({ slug, asBackground }: ProjectCoverProps) {
   const config = COVER_CONFIG[slug] ?? DEFAULT_COVER;
 
   return (
     <div
-      className="project-cover relative h-[200px] w-full shrink-0 overflow-hidden"
+      className={
+        asBackground
+          ? "project-cover project-cover--bg absolute inset-0 h-full w-full overflow-hidden"
+          : "project-cover relative h-[200px] w-full shrink-0 overflow-hidden"
+      }
       style={{ background: config.gradient }}
     >
       {config.svg}
