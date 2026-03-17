@@ -3,6 +3,7 @@ import { Inter, Noto_Serif_SC } from "next/font/google";
 import "../globals.css";
 import { locales } from "@/lib/i18n";
 import { LightboxProvider } from "@/components/ui/Lightbox";
+import { ScrollToHash } from "@/components/ScrollToHash";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -39,10 +40,13 @@ export default function LocaleLayout({
 }) {
   return (
     <html lang="zh" className={`${inter.variable} ${notoSerifSC.variable}`}>
-      <body className="font-sans text-ink antialiased">
-        <LightboxProvider>
-          {children}
-        </LightboxProvider>
+      <body className="font-sans text-ink antialiased overflow-hidden h-screen">
+        <div id="scroll-root" className="scroll-snap-root h-screen overflow-y-auto overflow-x-hidden overscroll-y-none">
+          <ScrollToHash />
+          <LightboxProvider>
+            {children}
+          </LightboxProvider>
+        </div>
       </body>
     </html>
   );

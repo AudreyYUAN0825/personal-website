@@ -49,10 +49,16 @@
 /* ── Base reset ──────────────────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
-  overflow-y: scroll;
-  scroll-snap-type: y proximity;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* 滚动容器 — 原生 scroll-snap，滚动与吸附一体，自然减速停靠 */
+.scroll-snap-root {
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 64px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -259,11 +265,11 @@ h1,h2,h3,h4,h5,h6 {
   font-size: 14px;
   font-weight: 500;
 }
-.hero-chip:nth-child(1) { background: #2D7A5E; color: #fff; }
-.hero-chip:nth-child(2) { background: #7DACD6; color: #1F2A44; }
+.hero-chip:nth-child(1) { background: #C0B9DB; color: #1F2A44; }
+.hero-chip:nth-child(2) { background: #E9B7D4; color: #1F2A44; }
 .hero-chip:nth-child(3) { background: #A5678E; color: #fff; }
-.hero-chip:nth-child(1):hover { background: #246b52; }
-.hero-chip:nth-child(2):hover { background: #6b9bc4; }
+.hero-chip:nth-child(1):hover { background: #b5a8ce; }
+.hero-chip:nth-child(2):hover { background: #e0a9c4; }
 .hero-chip:nth-child(3):hover { background: #935a7a; }
 /* 文字链接 — 极简，无圆角无描边，hover 时下划线或颜色变化 */
 .hero-ctas {
@@ -682,13 +688,13 @@ h1,h2,h3,h4,h5,h6 {
   z-index: 3;
   display: block;
   width: auto;
-  height: 600px;
+  height: 540px;
   max-width: 100%;
   object-fit: contain;
   object-position: center bottom;
   -webkit-user-drag: none;
   user-select: none;
-  transform: scale(1.08);
+  transform: scale(0.97);
   transform-origin: center bottom;
 }
 
@@ -732,7 +738,7 @@ h1,h2,h3,h4,h5,h6 {
 @media (max-width: 1024px) {
   .hero-section { padding: 96px 32px 48px; }
   .hero-glass-panel { margin: 0 16px; padding: 20px 20px 24px; border-radius: 24px; }
-  .portrait-img { height: 500px; transform: scale(1.02); transform-origin: center bottom; }
+  .portrait-img { height: 450px; transform: scale(0.92); transform-origin: center bottom; }
   .hero-visual  { min-height: 420px; margin-bottom: 0; }
   .hero-text    { margin-top: 0; }
   .portrait-light-stage { width: 360px; height: 400px; }
@@ -741,7 +747,7 @@ h1,h2,h3,h4,h5,h6 {
 @media (max-width: 640px) {
   .hero-section { padding: 88px 20px 40px; }
   .hero-glass-panel { margin: 0 12px; padding: 16px 16px 20px; border-radius: 20px; }
-  .portrait-img { height: 420px; transform: scale(1); transform-origin: center bottom; }
+  .portrait-img { height: 378px; transform: scale(0.9); transform-origin: center bottom; }
   .hero-text    { margin-top: 0; }
   .hero-visual  { min-height: 360px; margin-bottom: 0; }
   .portrait-light-stage { width: 300px; height: 340px; filter: blur(60px); }
@@ -899,6 +905,15 @@ h1,h2,h3,h4,h5,h6 {
   );
   pointer-events: none;
   z-index: 1;
+}
+/* 文字区域 — 底部实心衬底，确保文字始终可见 */
+.project-card-content {
+  background: linear-gradient(
+    to top,
+    rgba(250,249,246,0.98) 0%,
+    rgba(250,249,246,0.7) 35%,
+    transparent 100%
+  );
 }
 .project-card--bg-cover:hover .project-card-overlay {
   background: linear-gradient(

@@ -41,6 +41,8 @@ export type Project = {
   problem:  LocalizedText;
   approach: LocalizedText;
   result:   LocalizedText;
+  /** 卡片封面图片路径，2:1 比例推荐（如 1200×600） */
+  coverImage?: string;
   // ── Modal deep-dive (optional) ───────────────────────────────────────────
   context?:      LocalizedText;
   skills?:       LocalizedText[];
@@ -99,7 +101,7 @@ export type ValueBridgeItem = {
 export type WorkingStyleItem = {
   iconKey:     string;
   principle:   LocalizedText;  // Short heading
-  description: LocalizedText;  // 1-2 sentences (placeholder initially)
+  description: LocalizedText;  // 1-2 sentences
 };
 
 // ── Open To ────────────────────────────────────────────────────────────────

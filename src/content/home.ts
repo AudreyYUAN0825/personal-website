@@ -686,6 +686,7 @@ export function getHomeContent(locale: Locale): HomeContent {
         artifacts: [
           { label: { zh: "ITC-ILO 官网", en: "ITC-ILO Website", fr: "Site ITC-ILO" }, href: "https://www.itcilo.org" },
         ],
+        coverImage: "/images/project-longing-1.png",
         gallery: ["/images/project-longing-1.png", "/images/project-longing-2.png"],
       },
       {
@@ -741,6 +742,7 @@ export function getHomeContent(locale: Locale): HomeContent {
         artifacts: [
           { label: { zh: "ERM 官网", en: "ERM Website", fr: "Site ERM" }, href: "https://www.erm.com" },
         ],
+        coverImage: "/images/project-erm-cover.png",
         gallery: ["/images/project-erm-1.png", "/images/project-erm-2.png"],
       },
       {
@@ -797,6 +799,7 @@ export function getHomeContent(locale: Locale): HomeContent {
         artifacts: [
           { label: { zh: "OECD IFCMA 数据库", en: "OECD IFCMA Database", fr: "Base OCDE IFCMA" }, href: "https://www.oecd.org/en/topics/climate-change.html" },
         ],
+        coverImage: "/images/project-oecd-cover.png",
         gallery: ["/images/project-oecd-2.png", "/images/project-oecd-1.png", "/images/project-oecd-3.png"],
       },
       {
@@ -852,6 +855,7 @@ export function getHomeContent(locale: Locale): HomeContent {
         artifacts: [
           { label: { zh: "UNDP 官网", en: "UNDP Website", fr: "Site PNUD" }, href: "https://www.undp.org" },
         ],
+        coverImage: "/images/project-undp-1.png",
         gallery: ["/images/project-undp-1.png", "/images/project-undp-2.png", "/images/project-undp-3.png"],
       },
     ],
@@ -1017,7 +1021,7 @@ export function getHomeContent(locale: Locale): HomeContent {
           { zh: "政策文本分析与数据建模", en: "Policy Text Analysis & Data Modelling",   fr: "Analyse de textes politiques & modélisation" },
           { zh: "学术研究与会议展示",    en: "Academic Research & Conference Presentation", fr: "Recherche académique & présentation en conférence" },
         ],
-        gallery: [],
+        gallery: ["/images/care-climate-poster.png"],
       },
       {
         category: "campus", slug: "nankai-media",

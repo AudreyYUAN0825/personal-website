@@ -53,7 +53,7 @@ function Divider() {
 export function ExperienceModal({ exp, locale, ui, onClose }: ExperienceModalProps) {
   if (!exp) return null;
   const l      = ui.labels;
-  const gallery = exp.gallery?.length ? exp.gallery : ["/images/exp-placeholder.svg"];
+  const gallery = exp.gallery ?? [];
 
   return (
     <Modal open={!!exp} onClose={onClose}>
@@ -231,17 +231,11 @@ export function ExperienceModal({ exp, locale, ui, onClose }: ExperienceModalPro
                   key={i}
                   src={src}
                   alt=""
-                  className="rounded-xl bg-line"
-                  style={{ aspectRatio: "4/3" }}
+                  className="rounded-xl bg-line w-full overflow-hidden"
+                  imgClassName="object-contain"
+                  style={{ width: "100%", aspectRatio: "5/7" }}
                 />
               ))}
-              <p className="text-center text-[10px] text-ink/30">
-                {locale === "zh"
-                  ? "图片占位符 · 可替换为实际截图"
-                  : locale === "fr"
-                  ? "Placeholder · remplacer par de vraies captures"
-                  : "Placeholder · replace with actual screenshots"}
-              </p>
             </div>
           </div>
 

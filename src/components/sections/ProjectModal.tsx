@@ -52,7 +52,7 @@ function StarBlock({
 export function ProjectModal({ project, locale, ui, onClose }: ProjectModalProps) {
   if (!project) return null;
   const l = ui.labels;
-  const gallery = project.gallery?.length ? project.gallery : ["/images/project-placeholder.svg"];
+  const gallery = project.gallery ?? [];
 
   return (
     <Modal open={!!project} onClose={onClose}>
@@ -198,13 +198,6 @@ export function ProjectModal({ project, locale, ui, onClose }: ProjectModalProps
                   style={{ aspectRatio: "16/10" }}
                 />
               ))}
-              <p className="text-center text-[10px] text-ink/30">
-                {locale === "zh"
-                  ? "图片占位符 · 可替换为实际可视化成果"
-                  : locale === "fr"
-                  ? "Placeholder · remplacer par de vraies visualisations"
-                  : "Placeholder · replace with actual visual evidence"}
-              </p>
             </div>
           </div>
 

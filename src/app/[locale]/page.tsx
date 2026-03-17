@@ -33,7 +33,7 @@ export default async function HomePage({
         {/* 1 · Hero — full-bleed, no Section wrapper, handles own padding */}
         <Hero locale={locale as Locale} ui={content.ui} hero={content.hero} />
 
-        {/* ── Projects — 蓝+紫，卡片交错入场 ── */}
+        {/* ── Projects — 蓝+紫 ── */}
         <Section id="projects" className="section-rhythm section-projects relative py-20 lg:py-28" style={{ zIndex: 10 }}>
           <Projects locale={locale as Locale} ui={content.ui} projects={content.projects} />
         </Section>
@@ -102,7 +102,7 @@ export default async function HomePage({
         </Section>
 
         {/* Footer */}
-        <footer className="border-t border-line/60 py-10">
+        <footer className="snap-start border-t border-line/60 py-10">
           <div className="mx-auto w-full max-w-[1280px] px-6 sm:px-8 lg:px-12">
             <div className="flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
               <p className="text-[12px] text-ink/35">

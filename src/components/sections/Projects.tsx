@@ -6,7 +6,6 @@ import { SectionHeader } from "@/components/layout/SectionHeader";
 import { Badge } from "@/components/ui/Badge";
 import { ProjectCover } from "@/components/ui/ProjectCover";
 import { ProjectModal } from "@/components/sections/ProjectModal";
-import { FadeIn } from "@/components/ui/FadeIn";
 import type { Locale } from "@/lib/i18n";
 import type { UiStrings, Project } from "@/content/types";
 
@@ -20,46 +19,38 @@ export function Projects({ locale, ui, projects }: ProjectsProps) {
 
   return (
     <>
-      <FadeIn>
-        <SectionHeader title={s.title} description={s.description} icon="briefcase" />
-      </FadeIn>
+      <SectionHeader title={s.title} description={s.description} icon="briefcase" />
 
-      <div className="grid gap-5 md:grid-cols-2 md:grid-rows-[auto_auto_auto]">
+      <div className="grid grid-cols-2 gap-3">
         {projects.map((p, i) => (
-          <FadeIn key={i} delay={i * 80} className="h-full">
           <button
             key={i}
             onClick={() => setSelected(p)}
-            className={`project-card project-card--bg-cover group flex flex-col text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30 ${
-              i === 0 || i === 3 ? "min-h-[360px] md:col-span-2" : "min-h-[320px]"
-            }`}
+            className="project-card group flex flex-col overflow-hidden text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/30"
           >
-            {/* 1. 封面作为整卡背景 */}
-            <ProjectCover slug={p.slug} asBackground />
+            {/* 1. 封面图片 — 固定高度，占比缩小 */}
+            <ProjectCover slug={p.slug} coverImage={p.coverImage} className="h-[100px] shrink-0" />
 
-            {/* 2. 半透明白/奶油色遮罩，保证文字可读 */}
-            <div className="project-card-overlay" aria-hidden />
-
-            {/* 3. 项目标题 + 数据 + 查看详情 */}
-            <div className="relative z-10 flex flex-1 flex-col justify-end p-6 md:p-7">
-              <div className="mb-3 flex flex-wrap gap-1.5">
+            {/* 2. 项目标题 + 数据 + 查看详情 */}
+            <div className="flex flex-1 flex-col p-3 md:p-4">
+              <div className="mb-1.5 flex flex-wrap gap-1">
                 {p.tags.map((tag, j) => (
                   <Badge key={j} variant={j === 0 ? "featured" : "default"}>
                     {t(tag, locale)}
                   </Badge>
                 ))}
               </div>
-              <h3 className="mb-4 font-display text-[18px] font-semibold leading-snug text-ink transition-colors duration-200 group-hover:text-accent">
+              <h3 className="mb-1.5 font-display text-[13px] font-semibold leading-snug text-ink transition-colors duration-200 group-hover:text-accent">
                 {t(p.title, locale)}
               </h3>
 
               {/* 3. 关键数据 */}
               {p.metrics && p.metrics.length > 0 && (
-                <div className="mb-4 flex flex-wrap gap-4">
+                <div className="mb-1 flex flex-wrap gap-2">
                   {p.metrics.slice(0, 3).map((m, j) => (
                     <div key={j} className="flex items-baseline gap-1">
-                      <span className="font-display text-[20px] font-bold text-ink">{m.value}</span>
-                      <span className="text-[11px] font-medium text-ink/42">{t(m.label, locale)}</span>
+                      <span className="font-display text-[14px] font-bold text-ink">{m.value}</span>
+                      <span className="text-[10px] font-medium text-ink/42">{t(m.label, locale)}</span>
                     </div>
                   ))}
                 </div>
@@ -67,7 +58,7 @@ export function Projects({ locale, ui, projects }: ProjectsProps) {
 
               {/* 4. 查看详情 — 问题与结果在弹窗中展示 */}
               <div className="mt-auto flex items-center justify-end pt-2">
-                <span className="flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.1em] text-ink/35 transition-colors duration-200 group-hover:text-accent">
+                <span className="flex items-center gap-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-ink/35 transition-colors duration-200 group-hover:text-accent">
                   {l.viewDetails}
                   <svg
                     className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5"
@@ -79,7 +70,6 @@ export function Projects({ locale, ui, projects }: ProjectsProps) {
               </div>
             </div>
           </button>
-          </FadeIn>
         ))}
       </div>
 

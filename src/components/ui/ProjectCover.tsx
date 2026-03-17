@@ -227,19 +227,42 @@ const DEFAULT_COVER = {
 
 interface ProjectCoverProps {
   slug: string;
+  /** 封面图片路径，有则显示真实图片，无则用渐变+SVG */
+  coverImage?: string;
   /** 作为整卡背景时使用，填满父容器 */
   asBackground?: boolean;
+  /** 自定义容器样式（非背景模式时生效） */
+  className?: string;
 }
 
-export function ProjectCover({ slug, asBackground }: ProjectCoverProps) {
+export function ProjectCover({ slug, coverImage, asBackground, className }: ProjectCoverProps) {
   const config = COVER_CONFIG[slug] ?? DEFAULT_COVER;
+
+  if (coverImage) {
+    return (
+      <div
+        className={
+          asBackground
+            ? "project-cover project-cover--bg absolute inset-0 h-full w-full overflow-hidden"
+            : `project-cover relative w-full shrink-0 overflow-hidden ${className ?? "h-[200px]"}`
+        }
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={coverImage}
+          alt=""
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+        />
+      </div>
+    );
+  }
 
   return (
     <div
       className={
         asBackground
           ? "project-cover project-cover--bg absolute inset-0 h-full w-full overflow-hidden"
-          : "project-cover relative h-[200px] w-full shrink-0 overflow-hidden"
+          : `project-cover relative w-full shrink-0 overflow-hidden ${className ?? "h-[200px]"}`
       }
       style={{ background: config.gradient }}
     >

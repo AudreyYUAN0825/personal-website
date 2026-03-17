@@ -10,7 +10,7 @@ interface SectionProps {
 
 export function Section({ id, className, style, children }: SectionProps) {
   return (
-    <section id={id} className={cn("w-full", className)} style={style}>
+    <section id={id} className={cn("w-full snap-start", className)} style={style}>
       <div className="mx-auto w-full max-w-[1280px] px-6 sm:px-8 lg:px-12">
         {children}
       </div>

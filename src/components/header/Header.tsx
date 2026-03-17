@@ -26,19 +26,23 @@ export function Header({ locale, ui, cv, className }: HeaderProps) {
   const [mobileOpen, setMobileOpen]       = useState(false);
 
   useEffect(() => {
-    const updateSection = () => {
-      const threshold = window.scrollY + window.innerHeight * 0.4;
+    const root = document.getElementById("scroll-root");
+    if (!root) return;
+
+    const onScroll = () => {
+      const rootRect = root.getBoundingClientRect();
+      const threshold = rootRect.top + root.clientHeight * 0.4;
       let current = "";
       for (const id of SECTION_IDS) {
         const el = document.getElementById(id);
-        if (el && el.offsetTop <= threshold) current = `#${id}`;
+        if (el && el.getBoundingClientRect().top <= threshold) current = `#${id}`;
       }
-      setActiveSection(current);
+      setActiveSection(current || `#${SECTION_IDS[0]}`);
     };
-    updateSection();
-    window.addEventListener("scroll", updateSection, { passive: true });
 
-    return () => window.removeEventListener("scroll", updateSection);
+    onScroll();
+    root.addEventListener("scroll", onScroll, { passive: true });
+    return () => root.removeEventListener("scroll", onScroll);
   }, []);
 
   function localePath(target: Locale) {
@@ -69,7 +73,7 @@ export function Header({ locale, ui, cv, className }: HeaderProps) {
           <span className="font-display text-[14px] font-medium tracking-[-0.01em] text-[rgba(20,20,20,0.65)] transition-colors group-hover:text-[rgba(20,20,20,0.95)]">
             {ui.hero.name.split("·")[0].trim()}
           </span>
-          <span className="mt-0.5 text-[11px] font-medium uppercase tracking-[0.14em] text-[rgba(45,122,94,0.7)]">
+          <span className="mt-0.5 text-[11px] font-medium uppercase tracking-[0.14em] text-[#33539E]">
             Climate · Energy · International
           </span>
         </Link>
