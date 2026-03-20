@@ -30,7 +30,8 @@ export function ScrollToHash() {
     };
 
     scrollToHash("auto");
-    window.addEventListener("hashchange", () => scrollToHash("auto"));
+    const onHashChange = () => scrollToHash("auto");
+    window.addEventListener("hashchange", onHashChange);
 
     const handleClick = (e: MouseEvent) => {
       const target = (e.target as HTMLElement).closest("a[href*='#']") as HTMLAnchorElement | null;
@@ -62,7 +63,7 @@ export function ScrollToHash() {
 
     document.addEventListener("click", handleClick, true);
     return () => {
-      window.removeEventListener("hashchange", scrollToHash);
+      window.removeEventListener("hashchange", onHashChange);
       document.removeEventListener("click", handleClick, true);
     };
   }, [pathname]);
