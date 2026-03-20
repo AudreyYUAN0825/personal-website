@@ -16,7 +16,7 @@ interface HeaderProps {
 const localeLabel: Record<Locale, string> = { zh: "中", en: "EN", fr: "FR" };
 
 const SECTION_IDS = [
-  "projects", "experiences", "education", "publications",
+  "projects", "experiences", "education", "scholarships", "publications",
   "media", "additional", "tools", "value-bridge", "working-style", "contact",
 ];
 
@@ -57,6 +57,7 @@ export function Header({ locale, ui, cv, className }: HeaderProps) {
     { href: `/${locale}#projects`,    label: ui.nav.projects    },
     { href: `/${locale}#experiences`, label: ui.nav.experiences },
     { href: `/${locale}#education`,   label: ui.nav.education   },
+    { href: `/${locale}#scholarships`, label: ui.nav.scholarships },
     { href: `/${locale}#contact`,     label: ui.nav.contact     },
   ];
 

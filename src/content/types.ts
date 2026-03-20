@@ -89,6 +89,17 @@ export type EducationEntry = {
   credentials: CredentialLink[];
 };
 
+/** Scholarships & honours (standalone section) */
+export type ScholarshipAwardEntry = {
+  id:          string;
+  title:       LocalizedText;
+  level:       LocalizedText;
+  period:      LocalizedText;
+  paragraphs:  LocalizedText[];
+  href?:       string;
+  linkLabel?:  LocalizedText;
+};
+
 // ── Value Bridge ───────────────────────────────────────────────────────────
 export type ValueBridgeItem = {
   iconKey:    string;
@@ -113,7 +124,7 @@ export type OpenToEntry = {
 };
 
 export type UiStrings = {
-  nav: { capabilities: string; experiences: string; education: string; projects: string; profile: string; contact: string };
+  nav: { capabilities: string; experiences: string; education: string; scholarships: string; projects: string; profile: string; contact: string };
   hero: {
     kicker:            string;
     name:              string;
@@ -141,6 +152,7 @@ export type UiStrings = {
     openTo:       { title: string; description: string };
     contact:      { title: string; description: string };
     education:    { title: string; description: string };
+    scholarshipsAwards: { title: string; description: string };
   };
   labels: {
     role: string; location: string; impact: string; skills: string;
@@ -188,7 +200,8 @@ export type HomeContent = {
   media:        MediaItem[];
   additional:   Experience[];
   tools:        ToolItem[];
-  education:    EducationEntry[];
+  education:          EducationEntry[];
+  scholarshipsAwards: ScholarshipAwardEntry[];
   profile:      { paragraphs: LocalizedText[]; focus: LocalizedText[] };
   workingStyle: WorkingStyleItem[];
   openTo:       OpenToEntry;

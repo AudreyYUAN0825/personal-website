@@ -11,7 +11,7 @@ const cv: CvMap = {
 };
 
 const uiZh: UiStrings = {
-  nav: { capabilities: "核心能力", experiences: "工作经历", education: "教育背景", projects: "项目案例", profile: "关于我", contact: "联系方式" },
+  nav: { capabilities: "核心能力", experiences: "工作经历", education: "教育背景", scholarships: "奖学金与荣誉", projects: "项目案例", profile: "关于我", contact: "联系方式" },
   hero: {
     kicker:            "候选人资料",
     name:              "袁齐惠 · Qihui Yuan",
@@ -39,6 +39,7 @@ const uiZh: UiStrings = {
     openTo:       { title: "目前开放的机会",     description: "我正在寻找的角色与工作地点" },
     contact:      { title: "联系方式",           description: "欢迎交流合作机会" },
     education:    { title: "教育历程",           description: "学术训练与思维发展" },
+    scholarshipsAwards: { title: "奖学金与荣誉", description: "国家级与校级认可" },
   },
   labels: {
     role: "职位", location: "地点", impact: "成果", skills: "技能演示",
@@ -55,7 +56,7 @@ const uiZh: UiStrings = {
 };
 
 const uiEn: UiStrings = {
-  nav: { capabilities: "Capabilities", experiences: "Experience", education: "Education", projects: "Projects", profile: "About", contact: "Contact" },
+  nav: { capabilities: "Capabilities", experiences: "Experience", education: "Education", scholarships: "Scholarships & Awards", projects: "Projects", profile: "About", contact: "Contact" },
   hero: {
     kicker:            "Talent Profile",
     name:              "Qihui Yuan",
@@ -83,6 +84,7 @@ const uiEn: UiStrings = {
     openTo:       { title: "Open To",                    description: "Roles and locations I'm actively considering" },
     contact:      { title: "Contact",                    description: "Open to opportunities and conversations" },
     education:    { title: "Education Journey",           description: "Academic training and intellectual development" },
+    scholarshipsAwards: { title: "Scholarships & Awards", description: "National and university-level recognition" },
   },
   labels: {
     role: "ROLE", location: "LOCATION", impact: "IMPACT", skills: "SKILLS DEMONSTRATED",
@@ -99,7 +101,7 @@ const uiEn: UiStrings = {
 };
 
 const uiFr: UiStrings = {
-  nav: { capabilities: "Compétences", experiences: "Expérience", education: "Formation", projects: "Projets", profile: "À propos", contact: "Contact" },
+  nav: { capabilities: "Compétences", experiences: "Expérience", education: "Formation", scholarships: "Bourses & Distinctions", projects: "Projets", profile: "À propos", contact: "Contact" },
   hero: {
     kicker:            "Profil Candidat",
     name:              "Qihui Yuan",
@@ -127,6 +129,7 @@ const uiFr: UiStrings = {
     openTo:       { title: "Ouvert à",                                description: "Rôles et lieux que j'envisage activement" },
     contact:      { title: "Contact",                                 description: "Ouvert aux opportunités et aux échanges" },
     education:    { title: "Parcours Académique",                     description: "Formation académique et développement intellectuel" },
+    scholarshipsAwards: { title: "Bourses & Distinctions", description: "Reconnaissance nationale et universitaire" },
   },
   labels: {
     role: "POSTE", location: "LIEU", impact: "IMPACT", skills: "COMPÉTENCES",
@@ -1217,6 +1220,55 @@ export function getHomeContent(locale: Locale): HomeContent {
         credentials: [],
       },
     ],
+    scholarshipsAwards: [
+      {
+        id: "csc-international-reserve",
+        title: {
+          zh: "国际组织后备人才奖学金（CSC）",
+          en: "International Organisations Reserve Talent Scholarship (CSC)",
+          fr: "Bourse « Réserve de talents pour les organisations internationales » (CSC)",
+        },
+        level: { zh: "国家级", en: "National", fr: "National" },
+        period: { zh: "2023年6月", en: "June 2023", fr: "juin 2023" },
+        paragraphs: [
+          {
+            zh: "由中国国家留学基金管理委员会（CSC）设立，面向全国范围内选拔具备国际视野与发展潜力的优秀人才，重点支持其赴海外深造并参与国际组织相关领域的发展。",
+            en: "Established by the China Scholarship Council (CSC), this programme selects outstanding candidates nationwide with international vision and development potential, with a focus on supporting overseas study and careers linked to international organisations.",
+            fr: "Créée par le China Scholarship Council (CSC), cette bourse sélectionne des candidat·es d'exception à l'échelle nationale, doté·es d'une vision internationale et d'un fort potentiel, priorisant les études à l'étranger et les parcours liés aux organisations internationales.",
+          },
+          {
+            zh: "该项目竞争激烈，代表国家层面对候选人学术能力、综合素质及国际发展潜力的认可。",
+            en: "Highly competitive, it reflects national-level recognition of candidates' academic ability, overall profile, and potential for international careers.",
+            fr: "Programme très sélectif, il traduit une reconnaissance au niveau national de l'excellence académique, du profil général et du potentiel de carrière internationale.",
+          },
+        ],
+        href: "https://origin-www.csc.edu.cn/article/2497",
+        linkLabel: { zh: "官方信息", en: "Official information", fr: "Informations officielles" },
+      },
+      {
+        id: "nankai-student-service",
+        title: {
+          zh: "南开大学周恩来政府管理学院学生服务奖学金",
+          en: "Zhou Enlai School of Government Student Service Scholarship (Nankai University)",
+          fr: "Bourse « Service étudiant » — École Zhou Enlai de gouvernement (Université Nankai)",
+        },
+        level: { zh: "学院级", en: "School (college) level", fr: "Niveau faculté / école" },
+        period: { zh: "2020年", en: "2020", fr: "2020" },
+        paragraphs: [
+          {
+            zh: "由南开大学周恩来政府管理学院设立，授予在学术表现、公共参与及学生服务等方面表现突出的优秀学生。",
+            en: "Awarded by the Zhou Enlai School of Government at Nankai University to outstanding students for academic performance, public engagement, and student service.",
+            fr: "Attribuée par l'École Zhou Enlai de gouvernement de l'université Nankai aux étudiant·es excellents en résultats académiques, engagement citoyen et vie associative.",
+          },
+          {
+            zh: "体现了在校期间综合能力与责任意识的认可。",
+            en: "It recognises well-rounded capability and a strong sense of responsibility during undergraduate studies.",
+            fr: "Elle valorise les compétences transversales et le sens des responsabilités durant les études.",
+          },
+        ],
+      },
+    ],
+
 
     // ── Value Bridge ──────────────────────────────────────────────────────────
     valueBridge: [

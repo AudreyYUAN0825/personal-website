@@ -9,6 +9,7 @@ import { ValueBridge } from "@/components/sections/ValueBridge";
 import { Projects } from "@/components/sections/Projects";
 import { Experiences } from "@/components/sections/Experiences";
 import { Education } from "@/components/sections/Education";
+import { ScholarshipsAwards } from "@/components/sections/ScholarshipsAwards";
 import { Publications } from "@/components/sections/Publications";
 import { Media } from "@/components/sections/Media";
 import { AdditionalExperience } from "@/components/sections/AdditionalExperience";
@@ -49,6 +50,13 @@ export default async function HomePage({
         <Section id="education" className="section-rhythm section-education py-20 lg:py-28">
           <FadeIn delay={0}>
             <Education locale={locale as Locale} ui={content.ui} education={content.education} />
+          </FadeIn>
+        </Section>
+
+        {/* ── Scholarships & Awards ── */}
+        <Section id="scholarships" className="section-rhythm section-secondary py-16 lg:py-24">
+          <FadeIn>
+            <ScholarshipsAwards locale={locale as Locale} ui={content.ui} entries={content.scholarshipsAwards} />
           </FadeIn>
         </Section>
 
