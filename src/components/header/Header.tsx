@@ -37,7 +37,7 @@ export function Header({ locale, ui, cv, className }: HeaderProps) {
         const el = document.getElementById(id);
         if (el && el.getBoundingClientRect().top <= threshold) current = `#${id}`;
       }
-      setActiveSection(current || `#${SECTION_IDS[0]}`);
+      setActiveSection(current || "#top");
     };
 
     onScroll();
