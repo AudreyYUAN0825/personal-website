@@ -44,6 +44,8 @@ export function ScrollToHash() {
           if (!root) return;
           e.preventDefault();
           window.history.pushState(null, "", target.href);
+          // Tell SectionSnap to suppress itself while we scroll programmatically
+          window.dispatchEvent(new CustomEvent("nav-scroll-start"));
           if (hash === "top") {
             root.scrollTo({ top: 0, behavior: "smooth" });
           } else {

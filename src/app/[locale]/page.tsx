@@ -102,26 +102,8 @@ export default async function HomePage({
           </FadeIn>
         </Section>
 
-        {/* ── Contact — 粉+紫 ── */}
-        <Section id="contact" className="section-rhythm section-contact py-20 lg:py-28">
-          <FadeIn>
-            <Contact locale={locale as Locale} ui={content.ui} cv={content.cv} contact={content.contact} />
-          </FadeIn>
-        </Section>
-
-        {/* Footer */}
-        <footer className="snap-start border-t border-line/60 py-10">
-          <div className="mx-auto w-full max-w-[1280px] px-6 sm:px-8 lg:px-12">
-            <div className="flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
-              <p className="text-[12px] text-ink/35">
-                © {new Date().getFullYear()} Qihui Yuan · All rights reserved
-              </p>
-              <p className="text-[12px] text-ink/28">
-                qihui-yuan.com
-              </p>
-            </div>
-          </div>
-        </footer>
+        {/* ── Contact — full-bleed ending page ── */}
+        <Contact locale={locale as Locale} ui={content.ui} cv={content.cv} contact={content.contact} />
 
       </main>
 

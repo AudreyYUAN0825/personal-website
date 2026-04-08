@@ -20,29 +20,29 @@ const config: Config = {
         ink3:    "#718096",                      // muted
 
         // Layer 3: Brand — 1 dominant + accents + Climate
-        blue:         "#33539E",   // DOMINANT — buttons, links, active
-        "blue-light": "#7DACD6",   // accent — chip tints, stat values
+        blue:         "#2B52CC",   // DOMINANT — buttons, links, active
+        "blue-light": "#5B8BDE",   // accent — chip tints, stat values
         climate:      "#2D7A5E",   // Climate/Energy — earth green
         lavender:     "#C0B9DB",   // subtle — card borders
         pink:         "#E9B7D4",   // subtle — specialty tags
         rose:         "#A5678E",   // emphasis — featured badges
 
         // Legacy aliases
-        accent:        "#33539E",
-        "accent-deep": "#294587",
-        "accent-pale": "rgba(51,83,158,0.08)",
+        accent:        "#2B52CC",
+        "accent-deep": "#1E3EA8",
+        "accent-pale": "rgba(43,82,204,0.08)",
 
         // Borders
-        line:    "rgba(22,35,59,0.08)",
+        line:    "rgba(22,31,71,0.08)",
 
         // Retired (kept so old class refs don't break)
         mint:    "#C0B9DB",
         gold:    "#E9B7D4",
-        moss:    "#7DACD6",
+        moss:    "#5B8BDE",
       },
       fontFamily: {
         sans:    ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
-        display: ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "Plus Jakarta Sans", "system-ui", "sans-serif"],
       },
       fontSize: {
         "display": ["clamp(48px,6vw,84px)", { lineHeight: "0.96", letterSpacing: "-0.04em", fontWeight: "700" }],
@@ -51,14 +51,14 @@ const config: Config = {
       },
       boxShadow: {
         // Premium card shadows
-        soft:     "0 10px 30px rgba(27,39,79,0.08), inset 0 1px 0 rgba(255,255,255,0.58)",
-        hover:    "0 18px 44px rgba(27,39,79,0.12), inset 0 1px 0 rgba(255,255,255,0.68)",
-        card:     "0 12px 32px rgba(27,39,79,0.08)",
-        "card-hover": "0 20px 48px rgba(27,39,79,0.14)",
-        brand:    "0 8px 20px rgba(51,83,158,0.22)",
-        "brand-hover": "0 12px 28px rgba(51,83,158,0.30)",
-        nav:      "0 8px 24px rgba(27,39,79,0.08)",
-        glass:    "0 8px 32px rgba(27,39,79,0.08), inset 0 1px 0 rgba(255,255,255,0.9)",
+        soft:     "0 10px 30px rgba(22,31,71,0.08), inset 0 1px 0 rgba(255,255,255,0.58)",
+        hover:    "0 18px 44px rgba(22,31,71,0.12), inset 0 1px 0 rgba(255,255,255,0.68)",
+        card:     "0 12px 32px rgba(22,31,71,0.08)",
+        "card-hover": "0 20px 48px rgba(22,31,71,0.14)",
+        brand:    "0 8px 20px rgba(43,82,204,0.22)",
+        "brand-hover": "0 12px 28px rgba(43,82,204,0.30)",
+        nav:      "0 8px 24px rgba(22,31,71,0.08)",
+        glass:    "0 8px 32px rgba(22,31,71,0.08), inset 0 1px 0 rgba(255,255,255,0.9)",
       },
       borderRadius: {
         xl:    "12px",
@@ -77,7 +77,7 @@ const config: Config = {
       backgroundImage: {
         "page-gradient": "linear-gradient(180deg,#F6F4EF 0%,#F8F6F2 100%)",
         "hero-gradient": "linear-gradient(180deg,#F6F4EF 0%,#F8F6F2 100%)",
-        "accent-gradient": "linear-gradient(135deg,#33539E 0%,#4B6DB8 100%)",
+        "accent-gradient": "linear-gradient(135deg,#2B52CC 0%,#4A71E0 100%)",
         "card-gradient": "linear-gradient(135deg,rgba(255,255,255,0.65) 0%,rgba(255,255,255,0.45) 100%)",
       },
       transitionTimingFunction: {

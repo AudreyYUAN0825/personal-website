@@ -1,3 +1,7 @@
+/**
+ * 中文内容更新后，运行 `npm run extract-zh` 同步到 content-zh.txt
+ * 或执行 `npm run build` 时自动同步
+ */
 import type { HomeContent, UiStrings, CvMap, Locale } from "./types";
 
 export function t(text: { zh: string; en: string; fr: string }, locale: Locale): string {

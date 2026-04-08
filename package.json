@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "extract-zh": "node scripts/extract-zh.mjs",
+    "build": "npm run extract-zh && next build",
     "start": "next start",
     "lint": "next lint"
   },
